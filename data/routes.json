@@ -1,31 +1,31 @@
 [
     {
-        "href": "/view/ho-so-ket-nap.html",
+        "href": "view/ho-so-ket-nap.html",
         "icon": "fa-solid fa-file-lines",
         "label": "Mẫu hồ sơ kết nạp"
     },
     {
-        "href": "/view/ho-so-chuyen-chinh.html",
+        "href": "view/ho-so-chuyen-chinh.html",
         "icon": "fa-solid fa-file-lines",
         "label": "Mẫu hồ sơ chuyển chính"
     },
     {
-        "href": "/view/ho-so-chuyen-sinh-hoat.html",
+        "href": "view/ho-so-chuyen-sinh-hoat.html",
         "icon": "fa-solid fa-file-lines",
         "label": "Mẫu hồ sơ chuyển SHĐ"
     },
     {
-        "href": "/view/van-ban-khac.html",
+        "href": "view/van-ban-khac.html",
         "icon": "fa-solid fa-file-lines",
         "label": "Mẫu các văn bản khác"
     },
     {
-        "href": "/view/danh-sach-chi-bo.html",
+        "href": "view/danh-sach-chi-bo.html",
         "icon": "fa-solid fa-users",
         "label": "Danh sách Chi bộ"
     },
     {
-        "href": "/view/sinh-hoat-diem-danh.html",
+        "href": "view/sinh-hoat-diem-danh.html",
         "icon": "fa-solid fa-user-plus",
         "label": "Điểm danh sinh hoạt"
     },
@@ -45,7 +45,7 @@
         "label": "Phân công chuyên đề"
     },
     {
-        "href": "/view/bao-cao-nhap.html",
+        "href": "view/bao-cao-nhap.html",
         "icon": "fa-solid fa-file-import",
         "label": "Báo cáo tổ hằng tháng"
     },
