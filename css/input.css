@@ -1,0 +1,16 @@
+button,
+input,
+select,
+textarea {
+    width: 100%;
+    height: 42px;
+    padding: 6px 16px;
+    background: none;
+
+    border-radius: 16px;
+    border: 2px solid var(--theme-color-1);
+}
+
+textarea {
+    height: 100px;
+}

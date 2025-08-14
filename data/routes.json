@@ -1,0 +1,92 @@
+[
+    {
+        "href": "/view/ho-so-ket-nap.html",
+        "icon": "fa-solid fa-file-lines",
+        "label": "Mẫu hồ sơ kết nạp"
+    },
+    {
+        "href": "/view/ho-so-chuyen-chinh.html",
+        "icon": "fa-solid fa-file-lines",
+        "label": "Mẫu hồ sơ chuyển chính"
+    },
+    {
+        "href": "/view/ho-so-chuyen-sinh-hoat.html",
+        "icon": "fa-solid fa-file-lines",
+        "label": "Mẫu hồ sơ chuyển SHĐ"
+    },
+    {
+        "href": "/view/van-ban-khac.html",
+        "icon": "fa-solid fa-file-lines",
+        "label": "Mẫu các văn bản khác"
+    },
+    {
+        "href": "/view/danh-sach-chi-bo.html",
+        "icon": "fa-solid fa-users",
+        "label": "Danh sách Chi bộ"
+    },
+    {
+        "href": "/view/sinh-hoat-diem-danh.html",
+        "icon": "fa-solid fa-user-plus",
+        "label": "Điểm danh sinh hoạt"
+    },
+    {
+        "href": "#",
+        "icon": "fa-solid fa-user-minus",
+        "label": "Báo vắng sinh hoạt"
+    },
+    {
+        "href": "bien-ban-hop-chi-bo.html",
+        "icon": "fa-solid fa-user-check",
+        "label": "Kiểm tra dữ liệu vắng"
+    },
+    {
+        "href": "https://docs.google.com/spreadsheets/d/1iOZitipdeFAMmPB47Aq-PKz6St-G56ukTc4j4B11FQc/edit?usp=sharing",
+        "icon": "fa-solid fa-chalkboard-teacher",
+        "label": "Phân công chuyên đề"
+    },
+    {
+        "href": "/view/bao-cao-nhap.html",
+        "icon": "fa-solid fa-file-import",
+        "label": "Báo cáo tổ hằng tháng"
+    },
+    {
+        "href": "#",
+        "icon": "fa-solid fa-file-contract",
+        "label": "Xuất báo cáo hằng tháng"
+    },
+    {
+        "href": "https://meet.google.com/wuq-tzwi-yjg",
+        "icon": "fa-solid fa-file-invoice",
+        "label": "Phòng họp tổ trực tuyến"
+    },
+    {
+        "href": "https://drive.google.com/drive/folders/1o4yFojGe-R2hXP3FqEHtjFd15FzAW_C1",
+        "icon": "fa-solid fa-file-signature",
+        "label": "Biên bản họp Chi bộ"
+    },
+    {
+        "href": "https://docs.google.com/document/d/1wcUDnMIG8Rr7kaX4beUOE_4x6oqi0Nqg/edit?usp=sharing&ouid=113817656488021377543&rtpof=true&sd=true",
+        "icon": "fa-solid fa-file-signature",
+        "label": "Biên bản họp Chi ủy"
+    },
+    {
+        "href": "https://docs.google.com/spreadsheets/d/1u-X2PYpOUi0EPeBbQWi9BhTIsHx5LiI7oAslXZ4Cqjg/edit?usp=sharing",
+        "icon": "fa-solid fa-folder-open",
+        "label": "Theo dõi các hồ sơ"
+    },
+    {
+        "href": "https://docs.google.com/spreadsheets/d/1KKAHPWiLhGiI0_7DwyOzFISJ5oeEeKomyAjV9LZiusM/",
+        "icon": "fa-solid fa-coins",
+        "label": "Theo dõi Đảng phí"
+    },
+    {
+        "href": "https://drive.google.com/drive/folders/119fI02lCeUheGZJ7DQcv7oMfAhrlWkIKu6AzJvpuaEA-NpaF9nMXWww0QDTMlkMasnlXe36Z",
+        "icon": "fa-solid fa-image",
+        "label": "Xem hình ảnh Chi bộ"
+    },
+    {
+        "href": "https://docs.google.com/forms/d/e/1FAIpQLScgajATgUtOjX3Y7uUTLBkD7YBOHsqqkILHkI1wnxPr11W-Fg/viewform",
+        "icon": "fa-solid fa-download",
+        "label": "Tải hình ảnh Chi bộ"
+    }
+]

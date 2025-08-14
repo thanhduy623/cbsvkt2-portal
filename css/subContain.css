@@ -1,0 +1,17 @@
+.main-content {
+    display: block;
+    padding-bottom: 50px;
+}
+
+
+.sub-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 16px;
+    margin: 24px auto 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}

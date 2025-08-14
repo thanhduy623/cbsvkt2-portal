@@ -1,0 +1,31 @@
+.page-title {
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.page-title::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/pictures/hcm-city.png") bottom center repeat-x;
+    background-size: contain;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+
+.page-title h1 {
+    font-size: 42px;
+    text-shadow:
+        3px 3px 8px rgba(0, 0, 0, 0.9),
+        0 0 12px var(--theme-color-2),
+        0 0 20px white;
+    -webkit-text-stroke: 1px white;
+    z-index: 2;
+}

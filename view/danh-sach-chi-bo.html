@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>SINH VIÊN KỸ THUẬT 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Menu ngang -->
+    <header class="topbar">
+        <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo">
+        <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+    </header>
+
+    <!-- Tiêu đề trang -->
+    <main class="main-content">
+        <div class="page-title">
+            <h1>HỒ SƠ ĐỀ NGHỊ CÔNG NHẬN <br> ĐẢNG VIÊN CHÍNH THỨC</h1>
+        </div>
+
+        <!-- Các ô dẫn link -->
+        <div class="sub-content">
+
+        </div>
+    </main>
+</body>
+
+<script>
+    async function loadCSV(url) {
+        const res = await fetch(url);
+        const text = await res.text();
+        const rows = text.trim().split('\n').map(r => r.split(','));
+
+        // Lấy tiêu đề từ hàng thứ 2 (index 1)
+        const headers = rows[1];
+
+        // Tìm chỉ số các cột cần loại bỏ
+        const removeCols = ['Mail', 'Ghi chú', 'GHI CHÚ'];
+        const removeIndices = headers
+            .map((h, i) => removeCols.includes(h) ? i : -1)
+            .filter(i => i !== -1);
+
+        // Lọc headers
+        const filteredHeaders = headers.filter((_, i) => !removeIndices.includes(i));
+
+        // Dữ liệu bắt đầu từ hàng thứ 3 (index 2)
+        let dataRows = rows.slice(2);
+
+        // Lọc bỏ cột không cần thiết
+        dataRows = dataRows.map(row => row.filter((_, i) => !removeIndices.includes(i)));
+
+        // Lọc cột "Nhóm" chỉ hiển thị khác "Chuyển đi"
+        const groupIndex = filteredHeaders.findIndex(h => h.toLowerCase() === 'nhóm');
+        dataRows = dataRows.filter(row => row[groupIndex] !== 'Chuyển đi');
+
+        return { headers: filteredHeaders, dataRows };
+    }
+
+    function renderTable(containerSelector, headers, dataRows) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
+
+        const table = document.createElement('table');
+        table.classList.add('csv-table');
+
+        // Tạo header
+        const thead = document.createElement('thead');
+        const headRow = document.createElement('tr');
+        headers.forEach(h => {
+            const th = document.createElement('th');
+            th.textContent = h.toUpperCase();
+            th.style.textAlign = 'center';
+            headRow.appendChild(th);
+        });
+        thead.appendChild(headRow);
+        table.appendChild(thead);
+
+        // Tạo body
+        const tbody = document.createElement('tbody');
+        dataRows.forEach(row => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+                const td = document.createElement('td');
+                td.textContent = cell;
+                td.style.textAlign = 'center';
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+
+        container.appendChild(table);
+    }
+
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vStMERQU7LkEnZ5z9v587Iv0CROR4wsDWQ4ffeKvcWKHD7hxeuS5PruL3Sk99aH-p0rxdwIrzW6RVbt/pub?gid=891732717&single=true&output=csv';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const { headers, dataRows } = await loadCSV(csvUrl);
+        renderTable('.sub-content', headers, dataRows);
+    });
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+.card {
+    width: 160px;
+    height: 200px;
+
+    background-color: white;
+    border: 3px solid var(--theme-color-2);
+    border-radius: 16px;
+    padding: 16px;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card>i {
+    color: var(--theme-color-1);
+    font-size: 50px;
+    margin-bottom: 16px;
+    -webkit-text-stroke: 0.5px var(--theme-color-border);
+}
+
+.card>.nameCard {
+    color: var(--theme-color-1);
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px var(--theme-color-border);
+}

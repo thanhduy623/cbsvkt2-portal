@@ -1,0 +1,81 @@
+@import url(./header.css);
+@import url(./text.css);
+@import url(./pageTitle.css);
+@import url(./subContain.css);
+@import url(./card.css);
+@import url(./boxInfo.css);
+@import url(./table.css);
+@import url(./input.css);
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+:root {
+    --theme-color-1: #8C1007;
+    --theme-color-2: #B12C00;
+    --theme-color-3: #DC3C22;
+    --theme-color-4: #F5CBCB;
+    --theme-color-5: #FFEAEA;
+
+    --theme-color-bg: #FFF5F2;
+    --theme-color-red: #D71313;
+    --theme-color-border: #74512D;
+}
+
+
+/* ========== BASIC HARD RESET ========== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--theme-color-bg);
+    font-size: 16px;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+ol,
+ul,
+menu {
+    list-style-position: inside;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+a {
+    color: var(--theme-color-1);
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+form {
+    width: 100%;
+}
+
+:root {
+    -webkit-text-size-adjust: 100%;
+}

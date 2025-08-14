@@ -1,0 +1,39 @@
+/* table.css */
+
+/* Bảng tổng thể */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+thead {
+    background-color: var(--theme-color-1);
+    color: white;
+}
+
+thead th {
+    text-align: center;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+/* Dòng dữ liệu */
+tbody tr:nth-child(even) {
+    background-color: var(--theme-color-5);
+    /* Dòng chẵn màu sáng */
+}
+
+tbody tr:hover {
+    background-color: var(--theme-color-4);
+    /* Hover */
+}

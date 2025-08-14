@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>SINH VIÊN KỸ THUẬT 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Menu ngang -->
+    <header class="topbar">
+        <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo">
+        <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+    </header>
+
+    <!-- Tiêu đề trang -->
+    <main class="main-content">
+        <div class="page-title">
+            <h1>HỒ SƠ ĐỀ NGHỊ CÔNG NHẬN <br> ĐẢNG VIÊN CHÍNH THỨC</h1>
+        </div>
+
+        <!-- Các ô dẫn link -->
+        <div class="sub-content" x-data="{ data: {} }" x-init="loadData().then(d => data = d)">
+            <div class="box-info">
+                <h1>1. GIẤY CHỨNG NHẬN HỌC LỚP ĐẢNG VIÊN MỚI</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên dự bị tham gia học</li>
+                    <li>Đảm bảo đã học lớp Đảng viên mới trước khi tròn 12 tháng dự bị</li>
+                    <li>Đảm bảo kết quả học lớp Đảng viên mới là Đạt</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>2. BẢN TỰ KIỂM CỦA ĐẢNG VIÊN DỰ BỊ</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên dự bị</li>
+                    <li>Thực hiện tự kiểm điểm trong quá trình 12 tháng dự bị</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.tuKiem">TẠI ĐÂY</a></li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>3. BẢN NHẬN XÉT CỦA ĐẢNG VIÊN HƯỚNG DẪN</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên hướng dẫn</li>
+                    <li>Thực hiện nhận xét trong quá trình 12 tháng dự bị</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.nhanXetDVHD">TẠI ĐÂY</a></li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>4. TỔNG HỢP Ý KIẾN CỦA ĐOÀN THỂ CHÍNH TRỊ, NƠI CƯ TRÚ</h1>
+                <h2>4.1. Giấy nhận xét của Đoàn Khoa, Chi Đoàn</h2>
+                <ul>
+                    <li>Thực hiện: Đoàn khoa, Chi đoàn</li>
+                    <li>Liên hệ Đoàn Khoa, Chi Đoàn để tổ chức họp nhận xét</li>
+                    <li>Cung cấp đủ thông tin cần thiết cho Đoàn thể</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.nhanXetDK">TẠI ĐÂY</a> (Đoàn khoa)</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.nhanXetCD">TẠI ĐÂY</a> (Chi đoàn)</li>
+                </ul>
+                <br>
+                <h2>4.2. Giấy nhận xét của Nơi cư trú</h2>
+                <h3>4.2.1. Đối với Đảng viên trong KTX</h3>
+                <ul>
+                    <li>Thực hiện: Chi ủy nơi cư trú</li>
+                    <li>Liên hệ Văn phòng Đảng ủy tại phòng A304 (xem lưu ý)</li>
+                    <li>Nộp về cho Ban Quản lí ký túc xá Trường</li>
+                    <li>Sau khi nhận lại giấy nhận xét kẹp cùng hồ sơ</li>
+                </ul>
+                <h3>4.2.1. Đối với Đảng viên ngoài KTX</h3>
+                <ul>
+                    <li>Thực hiện: Chi ủy nơi cư trú</li>
+                    <li>Đảm bảo đã nộp Giấy 213 trước đó theo quy định</li>
+                    <li>Liên hệ Văn phòng Đảng ủy tại phòng A304 (xem lưu ý)</li>
+                    <li>Nộp về cho tổ chức đảng tại nơi cư trú</li>
+                    <li>Sau khi nhận lại giấy nhận xét kẹp cùng hồ sơ</li>
+                </ul>
+                <br>
+                <h3>* Lưu ý khi liên hệ Văn phòng Đảng ủy Trường:</h3>
+                <ul>
+                    <li>Đến Văn phòng Đảng ủy tại phòng A304</li>
+                    <li>Gặp cô Thủy (vị trí phía trong, bên tay phải)</li>
+                    <li>Trình bày rõ họ tên, chi bộ và xin giấy Nhận xét tổ chức đảng nơi cư trú để thực hiện tổng hợp
+                        hồ sơ Công nhận Đảng viên chính thức </li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>5. BẢNG ĐIỂM HỌC TẬP</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên dự bị</li>
+                    <li>Xin kết quả học tập học kỳ gần nhất</li>
+                    <li>Điều kiện chuyến Đảng chính thức: Từ 6.0 trở lên</li>
+                    <li>
+                        Truy cập Cổng thông tin sinh viên: <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Đào tạo</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Hỗ trợ học vụ</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Đơn xin cấp bảng điểm</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Bảng điểm học kỳ</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Học kỳ gần nhất</span> <br>
+                    </li>
+                    <li>Nhận bảng điểm học tập kẹp cùng hồ sơ</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>6. BẢNG ĐIỂM RÈN LUYỆN</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên dự bị</li>
+                    <li>Xin kết quả rèn luyện học kỳ gần nhất</li>
+                    <li>Điều kiện chuyến Đảng chính thức: Từ 65 trở lên</li>
+                    <li>
+                        Truy cập Cổng thông tin sinh viên: <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Công tác sinh viên</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Đăng ký chứng nhận</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Bổ sung hồ sơ cá nhân</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Chứng nhận kết quả rèn luyện</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Chứng nhận kết quả rèn luyện</span> <br>
+                        <span style="margin-left: 25px;">→ Chọn mục Lý do: Bảng điểm rèn luyện HK..., năm
+                            học ... - ... để công nhận Đảng viên chính thức</span> <br>
+                    </li>
+                    <li>Nhận bảng điểm rèn luyện kẹp cùng hồ sơ</li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>7. BẢNG NHẬN XÉT CỦA GIẢNG VIÊN CHỦ NHIỆM</h1>
+                <ul>
+                    <li>Thực hiện: Giảng viên chủ nhiệm</li>
+                    <li>Đảng viên dự gửi mail nhờ GVCN nhận xét</li>
+                    <li>Đính kèm biểu mẫu nhận xét vào cùng mail</li>
+                    <li>Nhận bản nhận xét (chữ ký sống) kẹp cùng hồ sơ</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.nhanXetGVCN">TẠI ĐÂY</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    function loadData() {
+        return fetch('../data/chuyen-chinh.json')
+            .then(res => res.json())
+    }
+</script>
+
+
+</html>

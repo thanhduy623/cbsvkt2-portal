@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>SINH VIÊN KỸ THUẬT 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Menu ngang -->
+    <header class="topbar">
+        <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo">
+        <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+    </header>
+
+    <!-- Tiêu đề trang -->
+    <main class="main-content">
+        <div class="page-title">
+            <h1>HỒ SƠ ĐỀ NGHỊ <br> CHUYỂN NƠI SINH HOẠT ĐẢNG</h1>
+        </div>
+
+        <!-- Các ô dẫn link -->
+        <div class="sub-content" x-data="{ data: {} }" x-init="loadData().then(d => data = d)">
+            <div class="box-info">
+                <h1>1. ĐƠN XIN CHUYỂN NƠI SINH HOẠT CHI BỘ</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên chuyển nơi sinh hoạt</li>
+                    <li>Thực hiện ngay khi chuyển đơn vị công tác</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.don">TẠI ĐÂY</a></li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>2. BẢN TỰ KIỂM CỦA ĐẢNG VIÊN</h1>
+                <ul>
+                    <li>Thực hiện: Đảng viên chuyển nơi sinh hoạt</li>
+                    <li>Thực hiện ngay khi chuyển đơn vị công tác</li>
+                    <li>Biểu mẫu tham khảo: <a :href="data.tuKiem">TẠI ĐÂY</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    function loadData() {
+        return fetch('../data/chuyen-sinh-hoat.json')
+            .then(res => res.json())
+    }
+</script>
+
+
+</html>
