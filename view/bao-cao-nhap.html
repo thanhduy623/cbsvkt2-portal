@@ -2,249 +2,238 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>SINH VIÊN KỸ THUẬT 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SINH VIÊN KỸ THUẬT 2</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/style.css">
+
+        <!-- AlpineJS -->
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body>
-    <!-- Menu ngang -->
-    <header class="topbar">
-        <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo">
-        <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
-    </header>
+        <!-- Header -->
+        <header class="topbar">
+                <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo Đảng">
+                <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+        </header>
 
-    <!-- Tiêu đề trang -->
-    <main class="main-content">
-        <div class="page-title">
-            <h1>HỒ SƠ ĐỀ NGHỊ CÔNG NHẬN <br> ĐẢNG VIÊN CHÍNH THỨC</h1>
-        </div>
-
-        <!-- Các ô dẫn link -->
-        <div class="sub-content">
-            <form>
-                <div class="box-info">
-                    <h1>I. THÔNG TIN CÁ NHÂN</h1>
-                    <h2>1.1. Mã sinh viên</h2>
-                    <input type="text">
-                    <h2>1.2. Họ và tên:</h2>
-                    <input type="text">
-                    <h2>1.3. Báo cáo tháng:</h2>
-                    <input type="text">
-                    <h2>1.4. Học kỳ:</h2>
-                    <input type="text">
+        <!-- Nội dung chính -->
+        <main class="main-content">
+                <div class="page-title">
+                        <h1>BÁO CÁO TỔ ĐẢNG <br> ĐỊNH KỲ HẰNG THÁNG</h1>
                 </div>
 
-                <br>
+                <form id="baoCaoNhapForm" class="sub-content">
+                        <!-- I. Thông tin cá nhân -->
+                        <section class="box-info">
+                                <h1>I. THÔNG TIN CÁ NHÂN</h1>
 
-                <div class="box-info">
-                    <h1>II. Về lập trường tư tưởng, chính trị</h1>
-                    <h2>2.1. Tự diễn biến, tự chuyển hóa:</h2>
-                    <select id="dien-bien-chuyen-hoa">
-                        <option value="" selected>Không có</option>
-                        <option value="">Có</option>
-                    </select>
-                    <h2>2.2. Suy thoái về tư tưởng chính trị:</h2>
-                    <select id="suy-thoai-chinh-tri">
-                        <option value="" selected>Không có</option>
-                        <option value="">Có</option>
-                    </select>
-                    <h2>2.3. Tự nhận xét, ghi rõ biểu hiện (nếu có):</h2>
-                    <textarea id="nhan-xet-lap-truong"></textarea>
-                </div>
+                                <h2 for="maSinhVien">1.1. Mã sinh viên</h2>
+                                <input type="text" id="maSinhVien" name="maSinhVien" maxlength="8" required>
 
-                <br>
+                                <h2 for="hoTen">1.2. Họ và tên</h2>
+                                <input type="text" id="hoTen" name="hoTen" placeholder="Tên tự động điền" readonly
+                                        required>
 
-                <div class="box-info">
-                    <h1>III. Về tình hình điểm rèn luyện</h1>
-                    <h2>3.1. Điểm rèn luyện hiện tại:</h2>
-                    <h2>3.2. Vi phạm nội quy, quy chế Nhà trường:</h2>
-                    <h2>3.3. Vi phạm chính sách, pháp luật Nhà nước:</h2>
-                    <h2>3.4. Tự nhận xét, ghi rõ các vấn đề (nếu có):</h2>
-                </div>
+                                <h2 for="toDang">1.3. Tổ Đảng</h2>
+                                <select id="toDang" name="toDang" required>
+                                        <option value="Công nghệ thông tin" selected>Công nghệ thông tin</option>
+                                        <option value="Kỹ thuật công trình">Kỹ thuật công trình</option>
+                                        <option value="Toán - Thống kê">Toán - Thống kê</option>
+                                        <option value="Điện - Điện tử">Điện - Điện tử</option>
+                                </select>
 
-                <br>
+                                <h2 for="dangVien">1.4. Đảng viên</h2>
+                                <select id="dangVien" name="dangVien" required>
+                                        <option value="Chính thức" selected>Chính thức</option>
+                                        <option value="Dự bị">Dự bị</option>
+                                </select>
 
-                <div class="box-info">
-                    <h1>IV. Về tình hình kết quả học tập</h1>
-                    <h2>4.1. Tự đánh giá kết quả học tập hiện tại:</h2>
-                    <h2>4.2. Tổng kết trung bình học kỳ:</h2>
-                    <h2>4.3. Tự nhận xét, ghi rõ các vấn đề (nếu có):</h2>
-                </div>
+                                <h2 for="baoCaoThang">1.5. Báo cáo tháng</h2>
+                                <select id="baoCaoThang" name="baoCaoThang" required>
+                                        <option value="Tháng 01" selected>Tháng 01</option>
+                                        <option value="Tháng 02">Tháng 02</option>
+                                        <option value="Tháng 03">Tháng 03</option>
+                                        <option value="Tháng 04">Tháng 04</option>
+                                        <option value="Tháng 05">Tháng 05</option>
+                                        <option value="Tháng 06">Tháng 06</option>
+                                        <option value="Tháng 07">Tháng 07</option>
+                                        <option value="Tháng 08">Tháng 08</option>
+                                        <option value="Tháng 09">Tháng 09</option>
+                                        <option value="Tháng 10">Tháng 10</option>
+                                        <option value="Tháng 11">Tháng 11</option>
+                                        <option value="Tháng 12">Tháng 12</option>
+                                </select>
 
-                <br>
+                                <h2 for="hocKy">1.6. Học kỳ</h2>
+                                <select id="hocKy" name="hocKy" required>
+                                        <option value="Học kỳ 1" selected>Học kỳ 1</option>
+                                        <option value="Học kỳ 2">Học kỳ 2</option>
+                                </select>
+                        </section>
 
-                <div class="box-info">
-                    <h1>V. Chi tiết tình hình học tập</h1>
-                    <p class="note">
-                        - Báo cáo các môn học có tính GPA<br>
-                        - Điền tên môn học theo thứ tự của bảng điểm<br>
-                        - Sao chép tên môn học theo đúng tên của bảng điểm<br>
-                        - Định dạng của số thập phân là: "X.XX" (ví dụ: 8.50)<br>
-                        - Nếu chưa có thì điền "X"
-                    </p>
-                    <div class="table-responsive">
-                        <table class="study-table" id="studyTable">
-                            <thead>
-                                <tr>
-                                    <th class="stt-col">STT</th>
-                                    <th class="tenmon-col">Tên môn học</th>
-                                    <th class="diem-col">Giữa kỳ</th>
-                                    <th class="diem-col">Cuối kỳ</th>
-                                    <th class="diem-col">GPA</th>
-                                </tr>
-                            </thead>
-                            <tbody class="required-group">
-                                <tr>
-                                    <td class="stt-cell">5.1</td>
-                                    <td><input type="text" name="tenMonHoc_1" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_1" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_1" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_1" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.2</td>
-                                    <td><input type="text" name="tenMonHoc_2" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_2" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_2" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_2" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.3</td>
-                                    <td><input type="text" name="tenMonHoc_3" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_3" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_3" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_3" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.4</td>
-                                    <td><input type="text" name="tenMonHoc_4" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_4" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_4" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_4" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.5</td>
-                                    <td><input type="text" name="tenMonHoc_5" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_5" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_5" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_5" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.6</td>
-                                    <td><input type="text" name="tenMonHoc_6" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_6" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_6" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_6" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.7</td>
-                                    <td><input type="text" name="tenMonHoc_7" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_7" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_7" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_7" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.8</td>
-                                    <td><input type="text" name="tenMonHoc_8" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_8" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_8" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_8" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.9</td>
-                                    <td><input type="text" name="tenMonHoc_9" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_9" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_9" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_9" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.10</td>
-                                    <td><input type="text" name="tenMonHoc_10" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_10" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_10" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_10" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.11</td>
-                                    <td><input type="text" name="tenMonHoc_11" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_11" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_11" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_11" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                                <tr>
-                                    <td class="stt-cell">5.12</td>
-                                    <td><input type="text" name="tenMonHoc_12" class="form-control no-outline"
-                                            placeholder="Tên môn học" maxlength="50"></td>
-                                    <td><input type="text" name="giuaKy_12" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="cuoiKy_12" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                    <td><input type="text" name="gpa_12" class="form-control grade-input no-outline"
-                                            placeholder="X.XX" pattern="^(x|X|\d{1,2}(\.\d{2})?)$"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    </section>
+                        <!-- II. Lập trường tư tưởng -->
+                        <section class="box-info">
+                                <h1>II. Về lập trường tư tưởng, chính trị</h1>
 
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="xacNhanThongTin" name="xacNhanThongTin" required>
-                        <label for="xacNhanThongTin">Tôi cam đoan các thông tin đã báo cáo là đúng với thực tế và chịu
-                            trách
-                            nhiệm nếu có sai lệch.</label>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </main>
+                                <h2 for="dienBienChuyenHoa">2.1. Tự diễn biến, tự chuyển hóa</h2>
+                                <select id="dienBienChuyenHoa" name="dienBienChuyenHoa" required>
+                                        <option value="" disabled selected>-- Chọn --</option>
+                                        <option value="Không có">Không có</option>
+                                        <option value="Có">Có</option>
+                                </select>
+
+                                <h2 for="suyThoaiChinhTri">2.2. Suy thoái về tư tưởng chính trị</h2>
+                                <select id="suyThoaiChinhTri" name="suyThoaiChinhTri" required>
+                                        <option value="" disabled selected>-- Chọn --</option>
+                                        <option value="Không có">Không có</option>
+                                        <option value="Có">Có</option>
+                                </select>
+
+                                <h2 for="nhanXetLapTruong">2.3. Tự nhận xét</h2>
+                                <textarea id="nhanXetLapTruong" name="nhanXetLapTruong"></textarea>
+                        </section>
+
+                        <!-- III. Điểm rèn luyện -->
+                        <section class="box-info">
+                                <h1>III. Về tình hình điểm rèn luyện</h1>
+
+                                <h2 for="renluyen">3.1. Điểm rèn luyện hiện tại</h2>
+                                <input type="number" id="renluyen" name="renluyen" placeholder="0 - 100" min="0"
+                                        max="100">
+
+                                <h2 for="viPhamNoiQuy">3.2. Vi phạm nội quy</h2>
+                                <select id="viPhamNoiQuy" name="viPhamNoiQuy" required>
+                                        <option value="" disabled selected>-- Chọn --</option>
+                                        <option value="Không có">Không có</option>
+                                        <option value="Có">Có</option>
+                                </select>
+
+                                <h2 for="viPhamPhapLuat">3.3. Vi phạm pháp luật</h2>
+                                <select id="viPhamPhapLuat" name="viPhamPhapLuat" required>
+                                        <option value="" disabled selected>-- Chọn --</option>
+                                        <option value="Không có">Không có</option>
+                                        <option value="Có">Có</option>
+                                </select>
+
+                                <h2 for="nhanXetRenLuyen">3.4. Tự nhận xét</h2>
+                                <textarea id="nhanXetRenLuyen" name="nhanXetRenLuyen"></textarea>
+                        </section>
+
+                        <!-- IV. Kết quả học tập -->
+                        <section class="box-info">
+                                <h1>IV. Về tình hình kết quả học tập</h1>
+
+                                <h2 for="tuDanhGiaHocTap">4.1. Tự đánh giá kết quả học tập</h2>
+                                <select id="tuDanhGiaHocTap" name="tuDanhGiaHocTap" required>
+                                        <option value="" disabled selected>-- Chọn --</option>
+                                        <option value="Trên 8.0">Trên 8.0</option>
+                                        <option value="Trên 7.0">Trên 7.0</option>
+                                        <option value="Trên 6.0">Trên 6.0</option>
+                                        <option value="Trên 5.0">Trên 5.0</option>
+                                        <option value="Dưới 5.0">Dưới 5.0</option>
+                                </select>
+
+                                <h2 for="tongKetHocKy">4.2. Tổng kết trung bình học kỳ</h2>
+                                <input type="text" id="tongKetHocKy" name="tongKetHocKy"
+                                        placeholder="X.XX hoặc 'Chưa có'">
+
+                                <h2 for="nhanXetHocTap">4.3. Tự nhận xét</h2>
+                                <textarea id="nhanXetHocTap" name="nhanXetHocTap"></textarea>
+                        </section>
+
+                        <!-- V. Chi tiết môn học -->
+                        <section class="box-info">
+                                <h1>V. Chi tiết tình hình học tập</h1>
+
+                                <p class="note">
+                                        - Báo cáo các môn học có tính GPA<br>
+                                        - Điền tên môn học theo thứ tự bảng điểm<br>
+                                        - Sao chép tên môn học theo đúng tên bảng điểm<br>
+                                        - Định dạng số thập phân: "X.XX" (ví dụ: 8.50)<br>
+                                        - Nếu chưa có thì điền "X"
+                                </p>
+
+                                <div class="table-responsive">
+                                        <table class="study-table" id="studyTable">
+                                                <thead>
+                                                        <tr>
+                                                                <th>Tên môn học</th>
+                                                                <th>GPA</th>
+                                                                <th>Giữa kỳ</th>
+                                                                <th>Cuối kỳ</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <!-- Hàng mẫu, thêm động bằng JS -->
+                                                        <tr>
+                                                                <td><input type="text" name="tenMonHoc_1"
+                                                                                placeholder="Tên môn học"></td>
+                                                                <td><input type="text" name="gpa_1" placeholder="X.X">
+                                                                </td>
+                                                                <td><input type="text" name="giuaKy_1"
+                                                                                placeholder="X.X"></td>
+                                                                <td><input type="text" name="cuoiKy_1"
+                                                                                placeholder="X.X"></td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                        <button type="button" id="add-subject" class="add-row">+ Thêm môn</button>
+                                </div>
+                        </section>
+
+                        <!-- Cam kết -->
+                        <div class="form-group checkbox-group">
+                                <input type="checkbox" id="xacNhanThongTin" name="xacNhanThongTin" required>
+                                <label for="xacNhanThongTin">
+                                        Tôi cam đoan các thông tin đã báo cáo là đúng với thực tế và chịu trách nhiệm
+                                        nếu có sai lệch.
+                                </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Gửi báo cáo</button>
+                </form>
+        </main>
+
+        <!-- JS -->
+        <script type="module" src="../js/bao-cao-nhap.js"></script>
 </body>
+
+<style>
+        table input {
+                margin-bottom: 0;
+        }
+
+        .table-responsive {
+                overflow-x: auto;
+                /* scroll ngang nếu cần */
+        }
+
+        .study-table {
+                width: 100%;
+                min-width: 350px;
+                /* tối thiểu tổng rộng bảng (200 + 3*50) */
+                border-collapse: collapse;
+        }
+
+        .study-table th,
+        .study-table td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                width: 100px;
+        }
+
+        .study-table th:first-child,
+        .study-table td:first-child {
+                min-width: 200px;
+                /* đảm bảo cột tên môn học */
+                text-align: left;
+        }
+</style>
+
 
 </html>

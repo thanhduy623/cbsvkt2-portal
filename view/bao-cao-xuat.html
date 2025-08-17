@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SINH VIÊN KỸ THUẬT 2</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/style.css">
+
+        <!-- AlpineJS -->
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+        <!-- Header -->
+        <header class="topbar">
+                <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo Đảng">
+                <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+        </header>
+
+        <!-- Nội dung chính -->
+        <main class="main-content">
+                <div class="page-title">
+                        <h1>BÁO CÁO TỔ ĐẢNG <br> TỔNG HỢP DỮ LIỆU</h1>
+                </div>
+
+                <form id="baoCaoNhapForm" class="sub-content">
+                        <!-- I. Thông tin cá nhân -->
+                        <div class="group-input">
+                                <h2 for="baoCaonNam">Chọn năm</h2>
+                                <select id="baoCaoNam" name="baoCaoNam" required>
+                                        <option value="Năm 2025" selected>Năm 2025</option>
+                                        <option value="Năm 2026">Năm 2026</option>
+                                        <option value="Năm 2027">Năm 2027</option>
+                                        <option value="Năm 2028">Năm 2028</option>
+                                        <option value="Năm 2029">Năm 2029</option>
+                                        <option value="Năm 2030">Năm 2030</option>
+                                </select>
+                        </div>
+
+
+                        <div class="group-input">
+                                <h2 for="baoCaoThang">Chọn tháng</h2>
+                                <select id="baoCaoThang" name="baoCaoThang" required>
+                                        <option value="Tháng 01" selected>Tháng 01</option>
+                                        <option value="Tháng 02">Tháng 02</option>
+                                        <option value="Tháng 03">Tháng 03</option>
+                                        <option value="Tháng 04">Tháng 04</option>
+                                        <option value="Tháng 05">Tháng 05</option>
+                                        <option value="Tháng 06">Tháng 06</option>
+                                        <option value="Tháng 07">Tháng 07</option>
+                                        <option value="Tháng 08">Tháng 08</option>
+                                        <option value="Tháng 09">Tháng 09</option>
+                                        <option value="Tháng 10">Tháng 10</option>
+                                        <option value="Tháng 11">Tháng 11</option>
+                                        <option value="Tháng 12">Tháng 12</option>
+                                </select>
+                        </div>
+
+                        <div class="group-input">
+                                <h2 for="toDang">Chọn tổ</h2>
+                                <select id="toDang" name="toDang" required>
+                                        <option value="Công nghệ thông tin" selected>Công nghệ thông tin</option>
+                                        <option value="Kỹ thuật công trình">Kỹ thuật công trình</option>
+                                        <option value="Toán - Thống kê">Toán - Thống kê</option>
+                                        <option value="Điện - Điện tử">Điện - Điện tử</option>
+                                </select>
+                        </div>
+
+                        <div class="group-input">
+                                <h2 for="passCode">Mã bảo mật</h2>
+                                <input type="password" id="passCode" name="maSinhVien" required>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Xuất báo cáo</button>
+                </form>
+        </main>
+
+        <!-- JS -->
+        <script type="module" src="../js/bao-cao-xuat.js"></script>
+</body>
+
+<style>
+        strong {
+                font-weight: 900;
+        }
+
+        .sub-content {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                max-width: 800px;
+        }
+
+        /* Nhóm input */
+        .group-input {
+                flex: 1 1 250px;
+                display: flex;
+                flex-direction: column;
+        }
+</style>
+
+
+</html>

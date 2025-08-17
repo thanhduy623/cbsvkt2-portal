@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>SINH VIÊN KỸ THUẬT 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Menu ngang -->
+    <header class="topbar">
+        <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo">
+        <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+    </header>
+
+    <!-- Tiêu đề trang -->
+    <main class="main-content">
+        <div class="page-title">
+            <h1>QR ĐIỂM DANH <br> SINH HOẠT CHI BỘ</h1>
+        </div>
+
+        <div class="sub-content">
+            <div>
+                <label>Mã sinh viên</label>
+                <input type="text" id="mssv" placeholder="Nhập mã sinh viên">
+
+                <label>Họ và tên</label>
+                <input type="text" id="fullname" placeholder="Đang tìm họ và tên..." readonly>
+
+                <label>Tháng sinh hoạt</label>
+                <input type="text" id="month" readonly>
+
+                <label>Mã xác thực</label>
+                <div class="code-container">
+                    <input type="text" class="code-num" id="code-1" maxlength="1">
+                    <input type="text" class="code-num" id="code-2" maxlength="1">
+                    <input type="text" class="code-num" id="code-3" maxlength="1">
+                    <input type="text" class="code-num" id="code-4" maxlength="1">
+                    <input type="text" class="code-num" id="code-5" maxlength="1">
+                    <input type="text" class="code-num" id="code-6" maxlength="1">
+                </div>
+
+                <p id="mess-exp"></p>
+                <button id="submit">GỬI</button>
+
+            </div>
+        </div>
+
+
+
+    </main>
+</body>
+
+<script type="module" src="../js/diem-danh.js"></script>
+
+<style>
+    .code-container {
+        display: flex;
+        gap: 10px;
+        margin: 0 auto;
+        width: 100%;
+        /* full width cha */
+        max-width: 600px;
+        /* giới hạn tối đa (tuỳ chọn) */
+    }
+
+    .code-num {
+        flex: 1 1 calc(100% / 5);
+        /* ✅ mỗi ô chiếm 1/5 */
+        height: 100px;
+        font-size: 50px;
+        font-weight: bolder;
+        text-align: center !important;
+        color: var(--theme-color-1);
+    }
+
+
+    #submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+</style>
+
+</html>

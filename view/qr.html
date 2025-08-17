@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>SINH VIÊN KỸ THUẬT 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+    <!-- Menu ngang -->
+    <header class="topbar">
+        <img class="logo" src="../assets/pictures/logo-dang.PNG" alt="Logo">
+        <h1>SINH VIÊN KHỐI KỸ THUẬT 2</h1>
+    </header>
+
+    <!-- Tiêu đề trang -->
+    <main class="main-content">
+        <div class="page-title">
+            <h1>MÃ ĐIỂM DANH <br> SINH HOẠT CHI BỘ</h1>
+        </div>
+
+        <div class="sub-content">
+            <!-- Khung hiển thị QR -->
+            <div class="code-container">
+                <input type="number" class="code-num" id="code-1" maxlength="1" readonly>
+                <input type="number" class="code-num" id="code-2" maxlength="1" readonly>
+                <input type="number" class="code-num" id="code-3" maxlength="1" readonly>
+                <input type="number" class="code-num" id="code-4" maxlength="1" readonly>
+                <input type="number" class="code-num" id="code-5" maxlength="1" readonly>
+                <input type="number" class="code-num" id="code-6" maxlength="1" readonly>
+            </div>
+
+            <div id="mess-exp"></div>
+        </div>
+
+
+
+    </main>
+</body>
+
+<script type="module" src="../js/ma-khoa.js"></script>
+
+<style>
+    .code-container {
+        display: flex;
+        gap: 30px;
+    }
+
+    .code-num {
+        display: flex;
+        width: 150px;
+        height: 200px;
+        font-size: 100px;
+        font-weight: bolder;
+        text-align: center !important;
+        color: var(--theme-color-1);
+    }
+</style>
+
+</html>
