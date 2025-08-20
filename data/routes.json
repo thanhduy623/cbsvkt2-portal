@@ -50,7 +50,7 @@
         "label": "Báo cáo tổ hằng tháng"
     },
     {
-        "href": "#",
+        "href": "view/bao-cao-xuat.html",
         "icon": "fa-solid fa-file-contract",
         "label": "Xuất báo cáo hằng tháng"
     },
