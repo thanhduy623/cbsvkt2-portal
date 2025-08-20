@@ -31,15 +31,15 @@ async function setUpGetReportButton() {
         Loading.show();
 
         try {
-            // 1. Lấy danh sách thành viên
+            // XÓA BẢNG CŨ nếu có
+            reportContainer.innerHTML = "";
+
             const resMembers = await connectGAS("getMemberList", {});
             if (!resMembers.success) throw new Error("❌ Lấy danh sách Chi bộ thất bại");
             let members = resMembers.data;
 
-            // Lọc theo tổ
             members = members.filter(m => m.toDang === toDang);
 
-            // 2. Lấy báo cáo
             const data = { baoCaoNam, baoCaoThang, toDang, passCode };
             const resReports = await connectGAS("getReport", data);
 
@@ -48,12 +48,13 @@ async function setUpGetReportButton() {
                 reports = resReports.data;
             }
 
-            // Ghép dữ liệu theo MSSV
             const finalData = members.map(member => {
                 const mssv = String(member.MSSV).trim();
-                const report = [...reports]
-                    .reverse()
-                    .find(r => String(r.maSinhVien).trim() === mssv) || {};
+                const report = reports.find(r =>
+                    String(r.maSinhVien).trim() === mssv &&
+                    String(r.baoCaoThang).trim() === baoCaoThang &&
+                    String(r.baoCaoNam).trim() === baoCaoNam
+                ) || {};
 
                 return {
                     hoTen: member.HO_TEN,
@@ -63,9 +64,6 @@ async function setUpGetReportButton() {
                     status: report.maSinhVien ? "Đã báo cáo" : "Chưa thực hiện báo cáo"
                 };
             });
-
-
-
 
             displayReport(finalData, reportContainer);
 
@@ -233,7 +231,7 @@ function showDetail(item) {
         <p>- Suy thoái tư tưởng chính trị: ${item.suyThoaiChinhTri || ""}</p>
         <p><strong>Nhận xét lập trường:</strong></p>
         <div style="white-space: pre-line; margin-left:15px;">
-            ${item.nhanXetLapTruong || ""}
+            ${item.nhanXetLapTruong.trim() || ""}
         </div>
 
         <h3>Rèn luyện</h3>
@@ -242,7 +240,7 @@ function showDetail(item) {
         <p>- Vi phạm pháp luật: ${item.viPhamPhapLuat || ""}</p>
         <p><strong>Nhận xét rèn luyện:</strong></p>
         <div style="white-space: pre-line; margin-left:15px;">
-            ${item.nhanXetRenLuyen || ""}
+            ${item.nhanXetRenLuyen.trim() || ""}
         </div>
 
         <h3>Học tập</h3>
@@ -250,7 +248,7 @@ function showDetail(item) {
         <p>- Tổng kết học kỳ: ${item.tongKetHocKy || ""}</p>
         <p><strong>Nhận xét học tập:</strong></p>
         <div style="white-space: pre-line; margin-left:15px;">
-            ${item.nhanXetHocTap || ""}
+            ${item.nhanXetHocTap.trim() || ""}
         </div>
 
         <h3>Bảng điểm chi tiết</h3>
