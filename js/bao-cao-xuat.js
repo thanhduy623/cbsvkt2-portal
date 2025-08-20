@@ -221,23 +221,43 @@ function showDetail(item) {
     const detailHTML = `
         <h2>📌 Chi tiết báo cáo</h2>
         <p><strong>Họ tên:</strong> ${item.hoTen || ""} (${item.maSinhVien || ""})</p>
-        <p><strong>Năm:</strong> ${item.baoCaoNam || ""} - 
-           <strong>Tháng:</strong> ${item.baoCaoThang || ""}</p>
+        <p><strong>Năm báo cáo:</strong> ${item.baoCaoNam || ""} - 
+        <strong>Tháng:</strong> ${item.baoCaoThang || ""}</p>
+        <p><strong>Đảng viên:</strong> ${item.dangVien || ""}</p>
+        <p><strong>Tổ Đảng:</strong> ${item.toDang || ""}</p>
+        <p><strong>Học kỳ:</strong> ${item.hocKy || ""} - <strong>Năm học:</strong> ${item.namHoc || ""}</p>
         <hr>
+
         <h3>Tư tưởng, chính trị</h3>
         <p>- Tự diễn biến, tự chuyển hóa: ${item.dienBienChuyenHoa || ""}</p>
         <p>- Suy thoái tư tưởng chính trị: ${item.suyThoaiChinhTri || ""}</p>
+        <p><strong>Nhận xét lập trường:</strong></p>
+        <div style="white-space: pre-line; margin-left:15px;">
+            ${item.nhanXetLapTruong || ""}
+        </div>
+
         <h3>Rèn luyện</h3>
         <p>- Điểm rèn luyện hiện tại: <strong>${item.renluyen || ""}</strong></p>
         <p>- Vi phạm nội quy: ${item.viPhamNoiQuy || ""}</p>
         <p>- Vi phạm pháp luật: ${item.viPhamPhapLuat || ""}</p>
+        <p><strong>Nhận xét rèn luyện:</strong></p>
+        <div style="white-space: pre-line; margin-left:15px;">
+            ${item.nhanXetRenLuyen || ""}
+        </div>
+
         <h3>Học tập</h3>
-        <p>- Học kỳ: ${item.hocKy || ""}</p>
         <p>- Tự đánh giá: ${item.tuDanhGiaHocTap || ""}</p>
         <p>- Tổng kết học kỳ: ${item.tongKetHocKy || ""}</p>
+        <p><strong>Nhận xét học tập:</strong></p>
+        <div style="white-space: pre-line; margin-left:15px;">
+            ${item.nhanXetHocTap || ""}
+        </div>
+
         <h3>Bảng điểm chi tiết</h3>
         ${bangDiemHTML}
     `;
+
+
 
     // Nếu popup chưa mở hoặc đã bị đóng → mở mới
     if (!detailWindow || detailWindow.closed) {

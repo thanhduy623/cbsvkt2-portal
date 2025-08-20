@@ -136,11 +136,11 @@ function setUpAddSubjectButton() {
         const newIndex = studyTableBody.querySelectorAll("tr").length + 1;
         const newRow = document.createElement("tr");
         newRow.innerHTML = `
-            <td><input type="text" name="tenMonHoc_${newIndex}" placeholder="Tên môn học"></td>
-            <td><input type="text" name="gpa_${newIndex}" placeholder="X.X"></td>
-            <td><input type="text" name="giuaKy_${newIndex}" placeholder="X.X"></td>
-            <td><input type="text" name="cuoiKy_${newIndex}" placeholder="X.X"></td>
-        `;
+                <td><input type="text" name="tenMonHoc_${newIndex}" placeholder="Tên môn học"></td>
+                <td><input type="text" name="gpa_${newIndex}" placeholder="X.X"></td>
+                <td><input type="text" name="giuaKy_${newIndex}" placeholder="X.X"></td>
+                <td><input type="text" name="cuoiKy_${newIndex}" placeholder="X.X"></td>
+            `;
         studyTableBody.appendChild(newRow);
     });
 }
