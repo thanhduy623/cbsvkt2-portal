@@ -229,27 +229,19 @@ function showDetail(item) {
         <h3>Tư tưởng, chính trị</h3>
         <p>- Tự diễn biến, tự chuyển hóa: ${item.dienBienChuyenHoa || ""}</p>
         <p>- Suy thoái tư tưởng chính trị: ${item.suyThoaiChinhTri || ""}</p>
-        <p><strong>Nhận xét lập trường:</strong></p>
-        <div style="white-space: pre-line; margin-left:15px;">
-            ${item.nhanXetLapTruong.trim() || ""}
+        <p>Nhận xét lập trường: ${item.nhanXetLapTruong.trim() || ""}</p>            
         </div>
 
         <h3>Rèn luyện</h3>
         <p>- Điểm rèn luyện hiện tại: <strong>${item.renluyen || ""}</strong></p>
         <p>- Vi phạm nội quy: ${item.viPhamNoiQuy || ""}</p>
         <p>- Vi phạm pháp luật: ${item.viPhamPhapLuat || ""}</p>
-        <p><strong>Nhận xét rèn luyện:</strong></p>
-        <div style="white-space: pre-line; margin-left:15px;">
-            ${item.nhanXetRenLuyen.trim() || ""}
-        </div>
+        <p>Nhận xét rèn luyện: ${item.nhanXetRenLuyen.trim() || ""}</p>
 
         <h3>Học tập</h3>
         <p>- Tự đánh giá: ${item.tuDanhGiaHocTap || ""}</p>
         <p>- Tổng kết học kỳ: ${item.tongKetHocKy || ""}</p>
-        <p><strong>Nhận xét học tập:</strong></p>
-        <div style="white-space: pre-line; margin-left:15px;">
-            ${item.nhanXetHocTap.trim() || ""}
-        </div>
+        <p>Nhận xét học tập: ${item.nhanXetHocTap.trim() || ""}</p>
 
         <h3>Bảng điểm chi tiết</h3>
         ${bangDiemHTML}
