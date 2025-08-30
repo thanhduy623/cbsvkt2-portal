@@ -30,12 +30,12 @@
         "label": "Điểm danh sinh hoạt"
     },
     {
-        "href": "#",
+        "href": "view/sinh-hoat-bao-vang.html",
         "icon": "fa-solid fa-user-minus",
         "label": "Báo vắng sinh hoạt"
     },
     {
-        "href": "#",
+        "href": "view/sinh-hoat-du-lieu.html",
         "icon": "fa-solid fa-user-check",
         "label": "Kiểm tra dữ liệu vắng"
     },

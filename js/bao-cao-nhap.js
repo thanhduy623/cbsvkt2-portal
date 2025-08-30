@@ -76,14 +76,21 @@ function setUpSubmitButton() {
         const bangDiemHocTap = [];
         document.querySelectorAll("#studyTable tbody tr").forEach(row => {
             const ten = row.querySelector(`input[name^='tenMonHoc']`).value.trim();
-            if (!ten) return;
-            bangDiemHocTap.push({
-                ten,
-                giuaKy: row.querySelector(`input[name^='giuaKy']`).value.trim() || null,
-                cuoiKy: row.querySelector(`input[name^='cuoiKy']`).value.trim() || null,
-                gpa: row.querySelector(`input[name^='gpa']`).value.trim() || null,
-            });
+            const gpa = row.querySelector(`input[name^='gpa']`).value.trim();
+            const giuaKy = row.querySelector(`input[name^='giuaKy']`).value.trim();
+            const cuoiKy = row.querySelector(`input[name^='cuoiKy']`).value.trim();
+
+            // chỉ cần có ít nhất 1 ô không rỗng thì push
+            if (ten || gpa || giuaKy || cuoiKy) {
+                bangDiemHocTap.push({ ten, gpa, giuaKy, cuoiKy });
+            }
         });
+
+        // kiểm tra: bảng phải có ít nhất 1 dòng dữ liệu
+        if (bangDiemHocTap.length === 0) {
+            alert("❌ Vui lòng nhập ít nhất một môn học trong bảng!");
+            return;
+        }
 
         const data = {};
         inputs.forEach(el => {
