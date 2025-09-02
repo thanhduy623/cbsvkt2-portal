@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setUpAddSubjectButton();
     setUpSubmitButton();
     selectedMonth();
+    checkJoinMeeting();
 });
 
 // ==========================
@@ -81,13 +82,11 @@ function setUpSubmitButton() {
             const giuaKy = row.querySelector(`input[name^='giuaKy']`).value.trim();
             const cuoiKy = row.querySelector(`input[name^='cuoiKy']`).value.trim();
 
-            // chỉ cần có ít nhất 1 ô không rỗng thì push
             if (ten || gpa || giuaKy || cuoiKy) {
                 bangDiemHocTap.push({ ten, gpa, giuaKy, cuoiKy });
             }
         });
 
-        // kiểm tra: bảng phải có ít nhất 1 dòng dữ liệu
         if (bangDiemHocTap.length === 0) {
             alert("❌ Vui lòng nhập ít nhất một môn học trong bảng!");
             return;
@@ -101,7 +100,33 @@ function setUpSubmitButton() {
         data.bangDiemHocTap = bangDiemHocTap;
         data.baoCaoNam = `Năm ${new Date().getFullYear()}`;
 
-        Loading.show(); // overlay loading khi submit
+        // ==== Xử lý file đơn xin vắng ====
+        const fileInput = document.getElementById("donXinVang");
+        const file = fileInput?.files[0];
+
+        if (file) {
+            try {
+                const base64 = await readFileAsBase64(file);
+                const mssv = document.getElementById("maSinhVien").value.trim();
+                const hoTen = document.getElementById("hoTen").value.trim();
+                const month = document.getElementById("baoCaoThang").value.replace("Tháng ", "");
+                const year = new Date().getFullYear();
+
+                const fileName = `ĐXV${year}${month} - ${mssv} - ${hoTen}.pdf`;
+
+                data.donXinVang = {
+                    name: fileName,
+                    content: base64,
+                    mimeType: file.type || "application/pdf"
+                };
+            } catch (err) {
+                console.error("❌ Lỗi đọc file:", err);
+                alert("❌ Không thể đọc file đơn xin vắng!");
+                return;
+            }
+        }
+
+        Loading.show();
 
         try {
             const res = await connectGAS("saveReport", data);
@@ -122,6 +147,18 @@ function setUpSubmitButton() {
     });
 }
 
+// Helper: đọc file thành base64
+function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const result = reader.result.split(",")[1]; // bỏ prefix data:...
+            resolve(result);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
 
 // ==========================
 // Thêm dòng môn học
@@ -144,32 +181,59 @@ function setUpAddSubjectButton() {
         const newIndex = studyTableBody.querySelectorAll("tr").length + 1;
         const newRow = document.createElement("tr");
         newRow.innerHTML = `
-                <td><input type="text" name="tenMonHoc_${newIndex}" placeholder="Tên môn học"></td>
-                <td><input type="text" name="gpa_${newIndex}" placeholder="X.X"></td>
-                <td><input type="text" name="giuaKy_${newIndex}" placeholder="X.X"></td>
-                <td><input type="text" name="cuoiKy_${newIndex}" placeholder="X.X"></td>
-            `;
+            <td><input type="text" name="tenMonHoc_${newIndex}" placeholder="Tên môn học"></td>
+            <td><input type="text" name="gpa_${newIndex}" placeholder="X.X"></td>
+            <td><input type="text" name="giuaKy_${newIndex}" placeholder="X.X"></td>
+            <td><input type="text" name="cuoiKy_${newIndex}" placeholder="X.X"></td>
+        `;
         studyTableBody.appendChild(newRow);
     });
 }
 
-// Chọn tháng theo thời điểm hiện tại
+// ==========================
+// Chọn tháng theo ngày hiện tại
+// ==========================
 function selectedMonth() {
     const monthSelect = document.getElementById("baoCaoThang");
     if (!monthSelect) return;
 
     const now = new Date();
-    let currentMonth = now.getMonth() + 1; // getMonth() trả về 0-11
+    let currentMonth = now.getMonth() + 1;
 
-    // Nếu ngày hiện tại > 10 thì cộng thêm 1 tháng
     if (now.getDate() > 10) {
         currentMonth++;
-        if (currentMonth > 12) currentMonth = 1; // quay lại Tháng 01
+        if (currentMonth > 12) currentMonth = 1;
     }
 
-    // Format "Tháng 01", "Tháng 02", ...
     const monthValue = `Tháng ${currentMonth.toString().padStart(2, "0")}`;
-
-    // Gán giá trị cho select
     monthSelect.value = monthValue;
+}
+
+// ==========================
+// Điền dữ liệu báo vắng
+// ==========================
+function checkJoinMeeting() {
+    const thamGiaSelect = document.getElementById("thamGiaSinhHoatCB");
+    const vangFields = document.getElementById("vangFields");
+
+    const requiredFields = ["mailXinVang", "baoXinVang", "lyDoXinVang", "donXinVang"];
+
+    function toggleVangFields() {
+        if (thamGiaSelect.value === "Không thể tham gia") {
+            vangFields.style.display = "block";
+            requiredFields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.setAttribute("required", "required");
+            });
+        } else {
+            vangFields.style.display = "none";
+            requiredFields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.removeAttribute("required");
+            });
+        }
+    }
+
+    toggleVangFields();
+    thamGiaSelect.addEventListener("change", toggleVangFields);
 }

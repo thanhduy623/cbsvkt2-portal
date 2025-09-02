@@ -122,7 +122,7 @@ function displayReport(data, container) {
                 <td>
                     <strong>${row.hoTen || ""}</strong><br>
                     MSSV: ${row.maSinhVien || ""}<br>
-                    Phân loại: ${row.dangVien || ""}
+                    Phân loại: ${row.dangVien || ""} ${row.donXinVang || row.baoXinVang ? '<span style="color:red;">- Xin vắng</span>' : ""}
                 </td>
                 <td>
                     - Tự diễn biến, tự chuyển hóa: ${row.dienBienChuyenHoa || ""}<br>
@@ -218,7 +218,10 @@ function showDetail(item) {
     // Nội dung chi tiết
     const detailHTML = `
         <h2>📌 Chi tiết báo cáo</h2>
-        <p><strong>Họ tên:</strong> ${item.hoTen || ""} (${item.maSinhVien || ""})</p>
+        <p>
+        <strong>Họ tên:</strong> ${item.hoTen || ""} (${item.maSinhVien || ""})
+        ${item.donXinVang || item.baoXinVang ? '<span style="color:red;"> – Xin vắng</span>' : ""}
+        </p>
         <p><strong>Năm báo cáo:</strong> ${item.baoCaoNam || ""} - 
         <strong>Tháng:</strong> ${item.baoCaoThang || ""}</p>
         <p><strong>Đảng viên:</strong> ${item.dangVien || ""}</p>
@@ -231,20 +234,32 @@ function showDetail(item) {
         <p>- Suy thoái tư tưởng chính trị: ${item.suyThoaiChinhTri || ""}</p>
         <p>Nhận xét lập trường: ${item.nhanXetLapTruong.trim() || ""}</p>            
         </div>
+        <hr>
 
         <h3>Rèn luyện</h3>
         <p>- Điểm rèn luyện hiện tại: <strong>${item.renluyen || ""}</strong></p>
         <p>- Vi phạm nội quy: ${item.viPhamNoiQuy || ""}</p>
         <p>- Vi phạm pháp luật: ${item.viPhamPhapLuat || ""}</p>
         <p>Nhận xét rèn luyện: ${item.nhanXetRenLuyen.trim() || ""}</p>
+        <hr>
 
         <h3>Học tập</h3>
         <p>- Tự đánh giá: ${item.tuDanhGiaHocTap || ""}</p>
         <p>- Tổng kết học kỳ: ${item.tongKetHocKy || ""}</p>
         <p>Nhận xét học tập: ${item.nhanXetHocTap.trim() || ""}</p>
+        <hr>
 
         <h3>Bảng điểm chi tiết</h3>
         ${bangDiemHTML}
+
+        ${item.donXinVang || item.baoXinVang ? `
+            <h3>Xin vắng sinh hoạt</h3>
+            <p>- Tham gia sinh hoạt chi bộ: ${item.thamGiaSinhHoatCB || ""}</p>
+            <p>- Mail xin vắng: ${item.mailXinVang || ""}</p>
+            <p>- Báo xin vắng: ${item.baoXinVang || ""}</p>
+            <p>- Lý do xin vắng: ${item.lyDoXinVang || ""}</p>
+            <p>- Đơn xin vắng: ${item.donXinVang ? `<a href="${item.donXinVang}" target="_blank">Xem file</a>` : ""}</p>
+        ` : ""}
     `;
 
 

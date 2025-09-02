@@ -194,6 +194,46 @@
                                 </div>
                         </section>
 
+                        <!-- VI. Báo vắng -->
+                        <section class="box-info">
+                                <h1>VI. Báo cáo tham gia sinh hoạt Chi bộ</h1>
+
+                                <p class="note">
+                                        - Đảm bảo không vắng quá số buổi theo Điều lệ Đảng<br>
+                                        - Thực hiện thông tin nhanh đến cấp ủy Chi bộ<br>
+                                        - Thực hiện mail xin vắng đến cấp ủy Chi bộ<br>
+                                        - Thực hiện nộp đơn xin vắng bản cứng và bản mềm<br>
+                                </p>
+
+                                <!-- 6.1 -->
+                                <h2 for="thamGiaSinhHoatCB">6.1. Có thể tham gia sinh hoạt hay không?</h2>
+                                <select id="thamGiaSinhHoatCB" name="thamGiaSinhHoatCB" required>
+                                        <option value="Có thể tham gia" selected>Có thể tham gia</option>
+                                        <option value="Không thể tham gia">Không thể tham gia</option>
+                                </select>
+
+                                <!-- Các mục 6.2 - 6.5 (ẩn khi có thể tham gia) -->
+                                <div id="vangFields" style="display:none; margin-top:15px;">
+                                        <h2 for="mailXinVang">6.2. Đã gửi mail xin vắng họp chưa?</h2>
+                                        <select id="mailXinVang" name="mailXinVang">
+                                                <option value="Đã gửi mail" selected>Đã gửi mail</option>
+                                                <option value="Chưa gửi mail">Chưa gửi mail</option>
+                                        </select>
+
+                                        <h2 for="baoXinVang">6.3. Đã thông tin nhanh đến cấp ủy?</h2>
+                                        <select id="baoXinVang" name="baoXinVang">
+                                                <option value="Đồng chí Bí thư" selected>Đồng chí Bí thư</option>
+                                                <option value="Đồng chí Phó Bí thư">Đồng chí Phó Bí thư</option>
+                                        </select>
+
+                                        <h2 for="lyDoXinVang">6.4. Lý do xin vắng</h2>
+                                        <input type="text" id="lyDoXinVang" name="lyDoXinVang">
+
+                                        <h2 for="donXinVang">6.5. Đơn xin vắng (pdf, ký tên mực xanh)</h2>
+                                        <input type="file" id="donXinVang" name="donXinVang" accept="application/pdf">
+                                </div>
+                        </section>
+
                         <!-- Cam kết -->
                         <div class="form-group checkbox-group">
                                 <input type="checkbox" id="xacNhanThongTin" name="xacNhanThongTin" required>
