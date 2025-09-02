@@ -88,6 +88,7 @@ function displayReport(data, container) {
 
     let html = `
         <h2>DỮ LIỆU TỔNG HỢP</h2>
+        ${generateSummary(data)}
         <table border="1" cellpadding="5" cellspacing="0" 
                style="width:100%; border-collapse: collapse;">
             <thead>
@@ -155,8 +156,6 @@ function displayReport(data, container) {
         }
     });
 }
-
-
 
 
 function parseBangDiem(str) {
@@ -264,12 +263,12 @@ function showDetail(item) {
 
 
 
-    // Nếu popup chưa mở hoặc đã bị đóng → mở mới
+    // Nếu tab chưa mở hoặc đã đóng → mở mới
     if (!detailWindow || detailWindow.closed) {
-        detailWindow = window.open("", "ChiTietBaoCao", "width=800,height=600,scrollbars=yes");
+        detailWindow = window.open("", "_blank"); // mở tab mới
     }
 
-    // Ghi đè nội dung popup mỗi lần click
+    // Ghi đè nội dung tab
     detailWindow.document.open();
     detailWindow.document.write(`
         <html>
@@ -279,8 +278,9 @@ function showDetail(item) {
                 body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
                 h2 { margin-bottom: 10px; }
                 h3 { margin-top: 20px; }
-                table { margin-top: 10px; }
-                td, th { text-align: center; }
+                table { margin-top: 10px; border-collapse: collapse; width: 100%; }
+                td, th { text-align: center; padding: 5px; border: 1px solid #ddd; }
+                th { background: #f2f2f2; }
             </style>
         </head>
         <body>
@@ -290,3 +290,106 @@ function showDetail(item) {
     `);
     detailWindow.document.close();
 }
+
+
+function generateSummary(data) {
+    if (!Array.isArray(data) || data.length === 0) return "";
+
+    // Helper: chuyển chuỗi thành số
+    function toNumber(val) {
+        if (!val) return NaN;
+        let n = parseFloat(val.toString().replace(",", "."));
+        return isNaN(n) ? NaN : n;
+    }
+
+    const tongBaoCao = data.filter(d => d.status === "Đã báo cáo").length;
+
+    // 1. Đảng viên
+    const tongDangVien = data.filter(d => d.dangVien).length;
+    const dangVienChinhThuc = data.filter(d => String(d.dangVien).toLowerCase().includes("chính thức")).length;
+    const dangVienDuBi = data.filter(d => String(d.dangVien).toLowerCase().includes("dự bị")).length;
+
+    // 2. Báo cáo
+    const soDaBaoCao = tongBaoCao;
+    const soChuaBaoCao = data.length - soDaBaoCao;
+    const soXinVang = data.filter(d => d.donXinVang || d.baoXinVang).length;
+
+    // 3. Tư tưởng, chính trị
+    const dienBien = data.filter(d => String(d.dienBienChuyenHoa).trim() === "Có");
+    const suyThoai = data.filter(d => String(d.suyThoaiChinhTri).trim() === "Có");
+
+    const viPhamNoiQuy = data.filter(d => String(d.viPhamNoiQuy).trim() === "Có");
+    const viPhamPhapLuat = data.filter(d => String(d.viPhamPhapLuat).trim() === "Có");
+
+    // 4. Điểm rèn luyện
+    const renLuyenScores = data.map(d => toNumber(d.renluyen)).filter(v => !isNaN(v));
+    const renLuyenMin = renLuyenScores.length ? Math.min(...renLuyenScores) : "–";
+    const renLuyenMax = renLuyenScores.length ? Math.max(...renLuyenScores) : "–";
+    const renLuyenAvg = renLuyenScores.length ? (renLuyenScores.reduce((a, b) => a + b, 0) / renLuyenScores.length).toFixed(2) : "–";
+
+    // 5. Điểm học tập
+    const hocTapScores = data
+        .map(d => toNumber(d.tongKetHocKy) || toNumber(d.tuDanhGiaHocTap))
+        .filter(v => !isNaN(v));
+    const hocTapMin = hocTapScores.length ? Math.min(...hocTapScores) : "–";
+    const hocTapMax = hocTapScores.length ? Math.max(...hocTapScores) : "–";
+    const hocTapAvg = hocTapScores.length ? (hocTapScores.reduce((a, b) => a + b, 0) / hocTapScores.length).toFixed(2) : "–";
+
+    return `
+        <div style="
+            margin:20px 0; 
+            padding:20px; 
+            border:2px solid #444; 
+            border-radius:10px; 
+            font-size:15px;
+        ">
+            <h3 style="margin-top:0; text-align:center; font-size:20px; font-weight:bold;">📊 THỐNG KÊ TỔNG HỢP</h3>
+
+            <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
+                
+                <div style="flex:1; min-width:250px; padding:12px; border:1px solid #ccc; border-radius:8px; background:#fff;">
+                    <h4 style="font-size:16px; font-weight:bold; color:#2c3e50;">👥 Đảng viên</h4>
+                    <p>- Tổng số: ${tongDangVien}</p>
+                    <p>- Chính thức: ${dangVienChinhThuc}</p>
+                    <p>- Dự bị: ${dangVienDuBi}</p>
+                </div>
+
+                <div style="flex:1; min-width:250px; padding:12px; border:1px solid #ccc; border-radius:8px; background:#fff;">
+                    <h4 style="font-size:16px; font-weight:bold; color:#2c3e50;">📑 Báo cáo</h4>
+                    <p>- Đã báo cáo: ${soDaBaoCao}</p>
+                    <p>- Chưa báo cáo: ${soChuaBaoCao}</p>
+                    <p>- Xin vắng: ${soXinVang}</p>
+                </div>
+
+                <div style="flex:1; min-width:250px; padding:12px; border:1px solid #ccc; border-radius:8px; background:#fff;">
+                    <h4 style="font-size:16px; font-weight:bold; color:#2c3e50;">🧠 Tư tưởng chính trị</h4>
+                    <p style="color:${(dienBien.length + suyThoai.length) !== 0 ? 'red' : 'inherit'};">
+                        - Tư tưởng giao động: ${dienBien.length + suyThoai.length} / ${tongBaoCao}
+                    </p>
+                    <p style="color:${viPhamNoiQuy.length !== 0 ? 'red' : 'inherit'};">
+                        - Vi phạm nội quy: ${viPhamNoiQuy.length} / ${tongBaoCao}
+                    </p>
+                    <p style="color:${viPhamPhapLuat.length !== 0 ? 'red' : 'inherit'};">
+                        - Vi phạm pháp luật: ${viPhamPhapLuat.length} / ${tongBaoCao}
+                    </p>
+                </div>
+                                    
+                <div style="flex:1; min-width:250px; padding:12px; border:1px solid #ccc; border-radius:8px; background:#fff;">
+                    <h4 style="font-size:16px; font-weight:bold; color:#2c3e50;">💪 Rèn luyện</h4>
+                    <p>- Thấp nhất: ${renLuyenMin}</p>
+                    <p>- Cao nhất: ${renLuyenMax}</p>
+                    <p>- Trung bình: ${renLuyenAvg}</p>
+                </div>
+
+                <div style="flex:1; min-width:250px; padding:12px; border:1px solid #ccc; border-radius:8px; background:#fff;">
+                    <h4 style="font-size:16px; font-weight:bold; color:#2c3e50;">📚 Học tập</h4>
+                    <p>- Thấp nhất: ${hocTapMin}</p>
+                    <p>- Cao nhất: ${hocTapMax}</p>
+                    <p>- Trung bình: ${hocTapAvg}</p>
+                </div>
+
+            </div>
+        </div>
+    `;
+}
+
