@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await setUpMemberList();
     setUpAddSubjectButton();
     setUpSubmitButton();
+    selectedMonth();
 });
 
 // ==========================
@@ -150,4 +151,25 @@ function setUpAddSubjectButton() {
             `;
         studyTableBody.appendChild(newRow);
     });
+}
+
+// Chọn tháng theo thời điểm hiện tại
+function selectedMonth() {
+    const monthSelect = document.getElementById("baoCaoThang");
+    if (!monthSelect) return;
+
+    const now = new Date();
+    let currentMonth = now.getMonth() + 1; // getMonth() trả về 0-11
+
+    // Nếu ngày hiện tại > 10 thì cộng thêm 1 tháng
+    if (now.getDate() > 10) {
+        currentMonth++;
+        if (currentMonth > 12) currentMonth = 1; // quay lại Tháng 01
+    }
+
+    // Format "Tháng 01", "Tháng 02", ...
+    const monthValue = `Tháng ${currentMonth.toString().padStart(2, "0")}`;
+
+    // Gán giá trị cho select
+    monthSelect.value = monthValue;
 }
