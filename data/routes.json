@@ -2,17 +2,17 @@
     {
         "href": "view/ho-so-ket-nap.html",
         "icon": "fa-solid fa-file-lines",
-        "label": "Mẫu hồ sơ kết nạp"
+        "label": "Mẫu hồ sơ người xin vào Đảng"
     },
     {
         "href": "view/ho-so-chuyen-chinh.html",
         "icon": "fa-solid fa-file-lines",
-        "label": "Mẫu hồ sơ chuyển chính"
+        "label": "Mẫu hồ sơ công nhận chính thức"
     },
     {
         "href": "view/ho-so-chuyen-sinh-hoat.html",
         "icon": "fa-solid fa-file-lines",
-        "label": "Mẫu hồ sơ chuyển SHĐ"
+        "label": "Mẫu hồ sơ chuyển nơi sinh hoạt Đảng"
     },
     {
         "href": "view/van-ban-khac.html",
