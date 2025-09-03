@@ -64,6 +64,7 @@ function setUpSubmitButton() {
         event.preventDefault();
 
         const inputs = Array.from(form.querySelectorAll("input, select, textarea"));
+        const thamGiaValue = document.getElementById("thamGiaSinhHoatCB")?.value;
 
         for (let el of inputs) {
             if (el.type === "submit" || el.type === "button" || el.type === "checkbox") continue;
