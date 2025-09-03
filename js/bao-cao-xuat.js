@@ -123,7 +123,7 @@ function displayReport(data, container) {
                 <td>
                     <strong>${row.hoTen || ""}</strong><br>
                     MSSV: ${row.maSinhVien || ""}<br>
-                    Phân loại: ${row.dangVien || ""} ${row.donXinVang || row.baoXinVang ? '<span style="color:red;">- Xin vắng</span>' : ""}
+                    Phân loại: ${row.dangVien || ""} ${row.thamGiaSinhHoatCB === "Không thể tham gia" ? '<span style="color:red;"> - Xin vắng</span>' : ""}
                 </td>
                 <td>
                     - Tự diễn biến, tự chuyển hóa: ${row.dienBienChuyenHoa || ""}<br>
@@ -219,7 +219,8 @@ function showDetail(item) {
         <h2>📌 Chi tiết báo cáo</h2>
         <p>
         <strong>Họ tên:</strong> ${item.hoTen || ""} (${item.maSinhVien || ""})
-        ${item.donXinVang || item.baoXinVang ? '<span style="color:red;"> – Xin vắng</span>' : ""}
+        ${item.thamGiaSinhHoatCB === "Không thể tham gia" ? '<span style="color:red;"> – Xin vắng</span>' : ""}
+
         </p>
         <p><strong>Năm báo cáo:</strong> ${item.baoCaoNam || ""} - 
         <strong>Tháng:</strong> ${item.baoCaoThang || ""}</p>
@@ -251,7 +252,7 @@ function showDetail(item) {
         <h3>Bảng điểm chi tiết</h3>
         ${bangDiemHTML}
 
-        ${item.donXinVang || item.baoXinVang ? `
+        ${item.thamGiaSinhHoatCB === "Không thể tham gia" ? `
             <h3>Xin vắng sinh hoạt</h3>
             <p>- Tham gia sinh hoạt chi bộ: ${item.thamGiaSinhHoatCB || ""}</p>
             <p>- Mail xin vắng: ${item.mailXinVang || ""}</p>
@@ -259,6 +260,7 @@ function showDetail(item) {
             <p>- Lý do xin vắng: ${item.lyDoXinVang || ""}</p>
             <p>- Đơn xin vắng: ${item.donXinVang ? `<a href="${item.donXinVang}" target="_blank">Xem file</a>` : ""}</p>
         ` : ""}
+
     `;
 
 
