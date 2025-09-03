@@ -67,7 +67,15 @@ function setUpSubmitButton() {
 
         for (let el of inputs) {
             if (el.type === "submit" || el.type === "button" || el.type === "checkbox") continue;
+
+            // ⛔ Bỏ qua các mục Bảng điểm chi tiết
             if (el.closest("#studyTable")) continue;
+
+            // ⛔ Bỏ qua các mục 6.2 - 6.5 nếu "Có thể tham gia"
+            if (["mailXinVang", "baoXinVang", "lyDoXinVang", "donXinVang"].includes(el.id)) {
+                if (thamGiaValue !== "Không thể tham gia") continue;
+            }
+
             if (!el.value || el.value.trim() === "") {
                 alert(`❌ Vui lòng điền đầy đủ thông tin: ${el.name || el.id}`);
                 el.focus();
