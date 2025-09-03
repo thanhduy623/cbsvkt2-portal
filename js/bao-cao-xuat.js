@@ -87,8 +87,9 @@ function displayReport(data, container) {
     }
 
     let html = `
-        <h2>DỮ LIỆU TỔNG HỢP</h2>
         ${generateSummary(data)}
+        <br>
+        <h2>DỮ LIỆU TỔNG HỢP</h2>
         <table border="1" cellpadding="5" cellspacing="0" 
                style="width:100%; border-collapse: collapse;">
             <thead>
