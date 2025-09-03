@@ -24,3 +24,71 @@ body {
     color: inherit;
     background: transparent;
 }
+
+/* ===== Reset cho form control (iOS/Android) ===== */
+input,
+button,
+textarea,
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    border-radius: 0;
+    /* bỏ bo góc mặc định iOS */
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Đảm bảo nút vẫn có con trỏ */
+button {
+    cursor: pointer;
+}
+
+/* Textarea chỉ resize dọc */
+textarea {
+    resize: vertical;
+}
+
+/* Bỏ spinner số (iOS/Android/Chrome/Firefox) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+/* Bỏ nút clear mặc định trên iOS Safari */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+/* Bỏ mũi tên mặc định của <select> */
+select::-ms-expand {
+    display: none;
+    /* IE/Edge cũ */
+}
+
+/* Bỏ icon calendar/clock mặc định */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/* Ngăn Chrome/Android tự tô vàng autofill */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 9999s ease-in-out 0s;
+}
