@@ -147,51 +147,11 @@
 
                                 <h2 for="tongKetHocKy">4.2. Tổng kết trung bình học kỳ</h2>
                                 <input type="text" id="tongKetHocKy" name="tongKetHocKy"
-                                        placeholder="X.XX hoặc X.XX* (nếu tự tính) hoặc 'Chưa có'">
+                                        placeholder="X.XX hoặc 'Chưa có'">
 
                                 <h2 for="nhanXetHocTap">4.3. Tự nhận xét</h2>
                                 <textarea id="nhanXetHocTap" name="nhanXetHocTap"
-                                        placeholder="Thực hiện học tập tốt, không có kết quả xấu"></textarea>
-                        </section>
-
-                        <!-- V. Chi tiết môn học -->
-                        <section class="box-info">
-                                <h1>V. Chi tiết tình hình học tập</h1>
-
-                                <p class="note">
-                                        - Báo cáo các môn học có tính GPA<br>
-                                        - Điền tên môn học theo thứ tự bảng điểm<br>
-                                        - Sao chép tên môn học theo đúng tên bảng điểm<br>
-                                        - Định dạng số thập phân: "X.XX" (ví dụ: 8.50)<br>
-                                        - Cam kết đúng với kết quả học tập thực tế<br>
-                                </p>
-
-                                <div class="table-responsive">
-                                        <table class="study-table" id="studyTable">
-                                                <thead>
-                                                        <tr>
-                                                                <th>Tên môn học</th>
-                                                                <th>GPA</th>
-                                                                <th>Giữa kỳ</th>
-                                                                <th>Cuối kỳ</th>
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                        <!-- Hàng mẫu, thêm động bằng JS -->
-                                                        <tr>
-                                                                <td><input type="text" name="tenMonHoc_1"
-                                                                                placeholder="Tên môn học"></td>
-                                                                <td><input type="text" name="gpa_1" placeholder="X.X">
-                                                                </td>
-                                                                <td><input type="text" name="giuaKy_1"
-                                                                                placeholder="X.X"></td>
-                                                                <td><input type="text" name="cuoiKy_1"
-                                                                                placeholder="X.X"></td>
-                                                        </tr>
-                                                </tbody>
-                                        </table>
-                                        <button type="button" id="add-subject" class="add-row">+ Thêm môn</button>
-                                </div>
+                                        placeholder="Thực hiện học tập tốt, không có kết quả xấu hoặc điểm giữa kỳ môn ... đạt ... do sơ suất trong học tập"></textarea>
                         </section>
 
                         <!-- VI. Báo vắng -->
@@ -232,7 +192,9 @@
                                         <input type="text" id="lyDoXinVang" name="lyDoXinVang">
 
                                         <h2 for="donXinVang">6.5. Đơn và minh chứng</h2>
-                                        <p>- Mẫu đơn xin vắng: <a href="">Tại đây</a></p>
+                                        <p>- Mẫu đơn xin vắng: <a
+                                                        href="https://docs.google.com/document/d/1S2oA4B1TyIDGo6JWqTdjSgX41fH3dehV/edit?usp=drive_link&ouid=101604361867947446018&rtpof=true&sd=true">Tại
+                                                        đây</a></p>
                                         <p>- In đơn và ký tên bằng bút mực xanh mực xanh</p>
                                         <p>- Scan đơn và minh chứng vào cùng 1 file PDF</p>
                                         <input type="file" id="donXinVang" name="donXinVang" accept="application/pdf">
@@ -257,35 +219,34 @@
 </body>
 
 <style>
-        table input {
-                margin-bottom: 0;
+        .checkbox-group {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
         }
 
-        .table-responsive {
-                overflow-x: auto;
-                /* scroll ngang nếu cần */
+        input[type="checkbox"] {
+                appearance: none;
+                cursor: pointer;
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
         }
 
-        .study-table {
-                width: 100%;
-                min-width: 350px;
-                /* tối thiểu tổng rộng bảng (200 + 3*50) */
-                border-collapse: collapse;
+        input[type="checkbox"]:checked {
+                background: var(--theme-color-1);
+                border-color: var(--theme-color-1);
+                color: #fff;
         }
 
-        .study-table th,
-        .study-table td {
-                border: 1px solid #ccc;
-                padding: 4px 8px;
-                text-align: center;
-                width: 100px;
-        }
-
-        .study-table th:first-child,
-        .study-table td:first-child {
-                min-width: 200px;
-                /* đảm bảo cột tên môn học */
-                text-align: left;
+        input[type="checkbox"]:checked::after {
+                content: "✔";
+                font-size: 20px;
+                line-height: 1;
         }
 </style>
 

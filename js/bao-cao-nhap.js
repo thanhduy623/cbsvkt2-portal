@@ -3,7 +3,6 @@ import { Loading } from './loading.js';  // import module loading
 
 document.addEventListener("DOMContentLoaded", async () => {
     await setUpMemberList();
-    setUpAddSubjectButton();
     setUpSubmitButton();
     selectedMonth();
     checkJoinMeeting();
@@ -19,7 +18,6 @@ async function setUpMemberList() {
     if (!mssvInput || !fullnameInput || !form) return console.error("❌ Thiếu element");
 
     const allFields = [mssvInput, ...form.querySelectorAll("input, select, textarea, button")];
-    allFields.forEach(el => el.disabled = true);
     mssvInput.placeholder = "Đang tải dữ liệu...";
 
     Loading.show(); // hiển thị overlay loading
@@ -29,16 +27,14 @@ async function setUpMemberList() {
         const res = await connectGAS("getMemberList", {});
         if (res.success && Array.isArray(res.data)) {
             members = res.data;
-            console.log("✅ Danh sách sinh viên:", members);
         } else {
-            alert("❌ Không tải được danh sách sinh viên!");
+            alert("❌ Không tải được danh sách đảng viên!");
         }
     } catch (err) {
         console.error(err);
         alert("❌ Lỗi khi gọi server!");
     } finally {
         Loading.hide(); // ẩn overlay loading
-        allFields.forEach(el => el.disabled = false);
         mssvInput.placeholder = "Nhập mã sinh viên";
     }
 
@@ -63,50 +59,14 @@ function setUpSubmitButton() {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const inputs = Array.from(form.querySelectorAll("input, select, textarea"));
-        const thamGiaValue = document.getElementById("thamGiaSinhHoatCB")?.value;
-
-        for (let el of inputs) {
-            if (el.type === "submit" || el.type === "button" || el.type === "checkbox") continue;
-
-            // ⛔ Bỏ qua các mục Bảng điểm chi tiết
-            if (el.closest("#studyTable")) continue;
-
-            // ⛔ Bỏ qua các mục 6.2 - 6.5 nếu "Có thể tham gia"
-            if (["mailXinVang", "baoXinVang", "lyDoXinVang", "donXinVang"].includes(el.id)) {
-                if (thamGiaValue !== "Không thể tham gia") continue;
-            }
-
-            if (!el.value || el.value.trim() === "") {
-                alert(`❌ Vui lòng điền đầy đủ thông tin: ${el.name || el.id}`);
-                el.focus();
-                return;
-            }
-        }
-
-        const bangDiemHocTap = [];
-        document.querySelectorAll("#studyTable tbody tr").forEach(row => {
-            const ten = row.querySelector(`input[name^='tenMonHoc']`).value.trim();
-            const gpa = row.querySelector(`input[name^='gpa']`).value.trim();
-            const giuaKy = row.querySelector(`input[name^='giuaKy']`).value.trim();
-            const cuoiKy = row.querySelector(`input[name^='cuoiKy']`).value.trim();
-
-            if (ten || gpa || giuaKy || cuoiKy) {
-                bangDiemHocTap.push({ ten, gpa, giuaKy, cuoiKy });
-            }
-        });
-
-        if (bangDiemHocTap.length === 0) {
-            alert("❌ Vui lòng nhập ít nhất một môn học trong bảng!");
-            return;
-        }
-
+        const formData = new FormData(form);
         const data = {};
-        inputs.forEach(el => {
-            if (el.type === "checkbox") data[el.name || el.id] = el.checked;
-            else if (!el.closest("#studyTable")) data[el.name || el.id] = el.value.trim();
+
+        formData.forEach((value, key) => {
+            data[key] = value.trim ? value.trim() : value;
         });
-        data.bangDiemHocTap = bangDiemHocTap;
+
+        // Thêm năm báo cáo
         data.baoCaoNam = `Năm ${new Date().getFullYear()}`;
 
         // ==== Xử lý file đơn xin vắng ====
@@ -135,8 +95,9 @@ function setUpSubmitButton() {
             }
         }
 
-        Loading.show();
+        console.log("📦 JSON gửi đi:", data);
 
+        Loading.show();
         try {
             const res = await connectGAS("saveReport", data);
             if (res.success) {
@@ -151,8 +112,6 @@ function setUpSubmitButton() {
         } finally {
             Loading.hide();
         }
-
-        console.log("📦 JSON gửi đi:", data);
     });
 }
 
@@ -169,35 +128,6 @@ function readFileAsBase64(file) {
     });
 }
 
-// ==========================
-// Thêm dòng môn học
-// ==========================
-function setUpAddSubjectButton() {
-    const addSubjectBtn = document.getElementById("add-subject");
-    const studyTableBody = document.querySelector("#studyTable tbody");
-
-    if (!addSubjectBtn || !studyTableBody) return;
-
-    addSubjectBtn.addEventListener("click", () => {
-        const lastRow = studyTableBody.querySelector("tr:last-child");
-        const lastTenMon = lastRow.querySelector("input[name^='tenMonHoc']").value.trim();
-
-        if (!lastTenMon) {
-            alert("❌ Vui lòng nhập tên môn học ở dòng trước trước khi thêm dòng mới!");
-            return;
-        }
-
-        const newIndex = studyTableBody.querySelectorAll("tr").length + 1;
-        const newRow = document.createElement("tr");
-        newRow.innerHTML = `
-            <td><input type="text" name="tenMonHoc_${newIndex}" placeholder="Tên môn học"></td>
-            <td><input type="text" name="gpa_${newIndex}" placeholder="X.X"></td>
-            <td><input type="text" name="giuaKy_${newIndex}" placeholder="X.X"></td>
-            <td><input type="text" name="cuoiKy_${newIndex}" placeholder="X.X"></td>
-        `;
-        studyTableBody.appendChild(newRow);
-    });
-}
 
 // ==========================
 // Chọn tháng theo ngày hiện tại

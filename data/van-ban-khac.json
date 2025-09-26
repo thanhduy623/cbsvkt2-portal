@@ -28,5 +28,10 @@
         "href": "https://docs.google.com/document/d/1SJKUvQ-JBFm1ihx9_2EgYQ7B6asdlL_D/edit?usp=drive_link&ouid=101604361867947446018&rtpof=true&sd=true",
         "icon": "fa-solid fa-file-lines",
         "label": "Phiếu bổ sung hồ sơ"
+    },
+    {
+        "href": "https://docs.google.com/document/d/1tl3-GJ_9p61tNx2H1IXU02ohj0p6amPi/edit?usp=sharing&ouid=101604361867947446018&rtpof=true&sd=true",
+        "icon": "fa-solid fa-file-lines",
+        "label": "Các mẫu mail khác"
     }
 ]
