@@ -70,30 +70,30 @@ function setUpSubmitButton() {
         data.baoCaoNam = `Năm ${new Date().getFullYear()}`;
 
         // ==== Xử lý file đơn xin vắng ====
-        const fileInput = document.getElementById("donXinVang");
-        const file = fileInput?.files[0];
+        // const fileInput = document.getElementById("donXinVang");
+        // const file = fileInput?.files[0];
 
-        if (file) {
-            try {
-                const base64 = await readFileAsBase64(file);
-                const mssv = document.getElementById("maSinhVien").value.trim();
-                const hoTen = document.getElementById("hoTen").value.trim();
-                const month = document.getElementById("baoCaoThang").value.replace("Tháng ", "");
-                const year = new Date().getFullYear();
+        // if (file) {
+        //     try {
+        //         const base64 = await readFileAsBase64(file);
+        //         const mssv = document.getElementById("maSinhVien").value.trim();
+        //         const hoTen = document.getElementById("hoTen").value.trim();
+        //         const month = document.getElementById("baoCaoThang").value.replace("Tháng ", "");
+        //         const year = new Date().getFullYear();
 
-                const fileName = `ĐXV${year}${month} - ${mssv} - ${hoTen}.pdf`;
+        //         const fileName = `ĐXV${year}${month} - ${mssv} - ${hoTen}.pdf`;
 
-                data.donXinVang = {
-                    name: fileName,
-                    content: base64,
-                    mimeType: file.type || "application/pdf"
-                };
-            } catch (err) {
-                console.error("❌ Lỗi đọc file:", err);
-                alert("❌ Không thể đọc file đơn xin vắng!");
-                return;
-            }
-        }
+        //         data.donXinVang = {
+        //             name: fileName,
+        //             content: base64,
+        //             mimeType: file.type || "application/pdf"
+        //         };
+        //     } catch (err) {
+        //         console.error("❌ Lỗi đọc file:", err);
+        //         alert("❌ Không thể đọc file đơn xin vắng!");
+        //         return;
+        //     }
+        // }
 
         console.log("📦 JSON gửi đi:", data);
 
@@ -155,7 +155,8 @@ function checkJoinMeeting() {
     const thamGiaSelect = document.getElementById("thamGiaSinhHoatCB");
     const vangFields = document.getElementById("vangFields");
 
-    const requiredFields = ["mailXinVang", "baoXinVang", "lyDoXinVang", "donXinVang"];
+    const requiredFields = ["mailXinVang", "baoXinVang", "lyDoXinVang"];
+    // const requiredFields = ["mailXinVang", "baoXinVang", "lyDoXinVang", "donXinVang"];
 
     function toggleVangFields() {
         if (thamGiaSelect.value === "Không thể tham gia") {
