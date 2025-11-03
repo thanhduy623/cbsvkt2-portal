@@ -50,11 +50,13 @@ async function setUpGetReportButton() {
 
             const finalData = members.map(member => {
                 const mssv = String(member.MSSV).trim();
-                const report = reports.find(r =>
-                    String(r.maSinhVien).trim() === mssv &&
-                    String(r.baoCaoThang).trim() === baoCaoThang &&
-                    String(r.baoCaoNam).trim() === baoCaoNam
-                ) || {};
+                const report = reports
+                    .filter(r =>
+                        String(r.maSinhVien).trim() === mssv &&
+                        String(r.baoCaoThang).trim() === baoCaoThang &&
+                        String(r.baoCaoNam).trim() === baoCaoNam
+                    )
+                    .sort((a, b) => new Date(b.timestamp || b.ngayGui) - new Date(a.timestamp || a.ngayGui))[0] || {};
 
                 return {
                     hoTen: member.HO_TEN,
