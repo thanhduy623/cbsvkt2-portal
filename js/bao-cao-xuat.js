@@ -50,6 +50,8 @@ async function setUpGetReportButton() {
 
             const finalData = members.map(member => {
                 const mssv = String(member.MSSV).trim();
+
+                // ✅ Lấy bản gửi cuối cùng (vì dữ liệu sắp từ cũ → mới)
                 const sameReports = reports.filter(r =>
                     String(r.maSinhVien).trim() === mssv &&
                     String(r.baoCaoThang).trim() === baoCaoThang &&
@@ -57,9 +59,8 @@ async function setUpGetReportButton() {
                 );
 
                 const report = sameReports.length > 0
-                    ? sameReports[sameReports.length - 1] // ✅ lấy bản cuối cùng (gửi mới nhất)
+                    ? sameReports[sameReports.length - 1] // bản cuối cùng
                     : {};
-
 
                 return {
                     hoTen: member.HO_TEN,
