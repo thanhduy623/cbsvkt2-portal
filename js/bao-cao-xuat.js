@@ -50,13 +50,16 @@ async function setUpGetReportButton() {
 
             const finalData = members.map(member => {
                 const mssv = String(member.MSSV).trim();
-                const report = reports
-                    .filter(r =>
-                        String(r.maSinhVien).trim() === mssv &&
-                        String(r.baoCaoThang).trim() === baoCaoThang &&
-                        String(r.baoCaoNam).trim() === baoCaoNam
-                    )
-                    .sort((a, b) => new Date(b.timestamp || b.ngayGui) - new Date(a.timestamp || a.ngayGui))[0] || {};
+                const sameReports = reports.filter(r =>
+                    String(r.maSinhVien).trim() === mssv &&
+                    String(r.baoCaoThang).trim() === baoCaoThang &&
+                    String(r.baoCaoNam).trim() === baoCaoNam
+                );
+
+                const report = sameReports.length > 0
+                    ? sameReports[sameReports.length - 1] // ✅ lấy bản cuối cùng (gửi mới nhất)
+                    : {};
+
 
                 return {
                     hoTen: member.HO_TEN,
