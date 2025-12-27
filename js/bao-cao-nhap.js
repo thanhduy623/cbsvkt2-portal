@@ -67,7 +67,12 @@ function setUpSubmitButton() {
         });
 
         // Thêm năm báo cáo
-        data.baoCaoNam = `Năm ${new Date().getFullYear()}`;
+        const now = new Date();
+
+        data.baoCaoNam = `Năm ${now.getMonth() === 11 && now.getDate() > 15
+                ? now.getFullYear() + 1
+                : now.getFullYear()
+            }`;
 
         // ==== Xử lý file đơn xin vắng ====
         // const fileInput = document.getElementById("donXinVang");
