@@ -26,20 +26,136 @@
         <!-- Các ô dẫn link -->
         <div class="sub-content" x-data="{ data: {} }" x-init="loadData().then(d => data = d)">
             <div class="box-info">
-                <h1>1. ĐƠN XIN CHUYỂN NƠI SINH HOẠT CHI BỘ</h1>
+                <h1>TRƯỜNG HỢP 1</h1>
+
+                <h2>1. Điều kiện tổng quan</h2>
                 <ul>
-                    <li>Thực hiện: Đảng viên chuyển nơi sinh hoạt</li>
-                    <li>Thực hiện ngay khi chuyển đơn vị công tác</li>
-                    <li>Biểu mẫu tham khảo: <a :href="data.don">TẠI ĐÂY</a></li>
+                    <li>Đã đi làm</li>
+                    <li>Công ty có tổ chức Đảng</li>
+                </ul>
+
+                <h2>2. Hồ sơ cần nộp</h2>
+                <ul>
+                    <li>Đơn xin chuyển nơi sinh hoạt Đảng <a :href="data.don">(TẠI ĐÂY)</a></li>
+                    <li>Bản tự kiểm điểm <a :href="data.tuKiem">(TẠI ĐÂY)</a></li>
+                    <li>Bản photo Hợp đồng lao động</li>
+                    <li>Tổng hợp ý kiến nhận xét <a :href="data.tongHopNhanXet">(TẠI ĐÂY)</a></li>
+                </ul>
+
+                <h2>3. Lưu ý</h2>
+                <ul>
+                    <li>
+                        Tại mục lý do trong đơn, ghi rõ thời gian đã tốt nghiệp; hiện đang làm việc tại công ty
+                        (ghi đầy đủ tên và địa chỉ công ty); công ty có tổ chức Đảng, vì vậy đề nghị chuyển sinh hoạt
+                        Đảng về tổ chức Đảng tại đơn vị công tác (ghi đầy đủ tên tổ chức Đảng tiếp nhận).
+                    </li>
+                    <li>
+                        Phiếu tổng hợp ý kiến nhận xét chỉ áp dụng đối với Đảng viên dự bị chuyển nơi sinh hoạt Đảng.
+                        Đảng viên chủ động liên hệ Đoàn khoa để được hỗ trợ thực hiện nhận xét, kẹp cùng hồ sơ và nộp
+                        về Chi bộ.
+                    </li>
                 </ul>
             </div>
 
             <div class="box-info">
-                <h1>2. BẢN TỰ KIỂM CỦA ĐẢNG VIÊN</h1>
+                <h1>TRƯỜNG HỢP 2</h1>
+
+                <h2>1. Điều kiện tổng quan</h2>
                 <ul>
-                    <li>Thực hiện: Đảng viên chuyển nơi sinh hoạt</li>
-                    <li>Thực hiện ngay khi chuyển đơn vị công tác</li>
-                    <li>Biểu mẫu tham khảo: <a :href="data.tuKiem">TẠI ĐÂY</a></li>
+                    <li>Đã đi làm</li>
+                    <li>Công ty không có tổ chức Đảng</li>
+                    <li>Có tổ chức Đảng quản lý cơ quan/doanh nghiệp/người lao động</li>
+                </ul>
+
+                <h2>2. Hồ sơ cần nộp</h2>
+                <ul>
+                    <li>Đơn xin chuyển nơi sinh hoạt Đảng <a :href="data.don">(TẠI ĐÂY)</a></li>
+                    <li>Bản tự kiểm điểm <a :href="data.tuKiem">(TẠI ĐÂY)</a></li>
+                    <li>Bản photo Hợp đồng lao động</li>
+                    <li>Tổng hợp ý kiến nhận xét <a :href="data.tongHopNhanXet">(TẠI ĐÂY)</a></li>
+                </ul>
+
+                <h2>3. Lưu ý</h2>
+                <ul>
+                    <li>
+                        Tại mục lý do trong đơn, ghi rõ thời gian đã tốt nghiệp; hiện đang làm việc tại công ty
+                        (ghi đầy đủ tên và địa chỉ công ty); công ty không có tổ chức Đảng nhưng thuộc phạm vi quản lý
+                        của tổ chức Đảng cấp trên đối với cơ quan/doanh nghiệp/người lao động. Vì vậy đề nghị chuyển
+                        sinh hoạt Đảng về tổ chức Đảng quản lý đơn vị công tác (ghi đầy đủ tên tổ chức Đảng tiếp nhận).
+                    </li>
+                    <li>
+                        Phiếu tổng hợp ý kiến nhận xét chỉ áp dụng đối với Đảng viên dự bị chuyển nơi sinh hoạt Đảng.
+                        Đảng viên chủ động liên hệ Đoàn khoa để được hỗ trợ thực hiện nhận xét, kẹp cùng hồ sơ và nộp
+                        về Chi bộ.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>TRƯỜNG HỢP 3</h1>
+
+                <h2>1. Điều kiện tổng quan</h2>
+                <ul>
+                    <li>Đã đi làm</li>
+                    <li>Công ty không có tổ chức Đảng</li>
+                    <li>Không có tổ chức Đảng quản lý</li>
+                    <li>Có nhu cầu chuyển sinh hoạt Đảng về nơi tạm trú hoặc thường trú</li>
+                </ul>
+
+                <h2>2. Hồ sơ cần nộp</h2>
+                <ul>
+                    <li>Đơn xin chuyển nơi sinh hoạt Đảng <a :href="data.don">(TẠI ĐÂY)</a></li>
+                    <li>Bản tự kiểm điểm <a :href="data.tuKiem">(TẠI ĐÂY)</a></li>
+                    <li>Bản photo Hợp đồng lao động</li>
+                    <li>Thông tin tạm trú/thường trú trên ứng dụng VNeID (in kẹp cùng hồ sơ)</li>
+                    <li>Tổng hợp ý kiến nhận xét <a :href="data.tongHopNhanXet">(TẠI ĐÂY)</a></li>
+                </ul>
+
+                <h2>3. Lưu ý</h2>
+                <ul>
+                    <li>
+                        Tại mục lý do trong đơn, ghi rõ thời gian đã tốt nghiệp; hiện đang làm việc tại công ty
+                        (ghi đầy đủ tên và địa chỉ công ty); công ty không có tổ chức Đảng và không thuộc phạm vi quản lý
+                        của tổ chức Đảng nào. Vì vậy đề nghị chuyển sinh hoạt Đảng về tổ chức Đảng tại nơi tạm trú hoặc
+                        thường trú (ghi đầy đủ tên tổ chức Đảng tiếp nhận).
+                    </li>
+                    <li>
+                        Phiếu tổng hợp ý kiến nhận xét chỉ áp dụng đối với Đảng viên dự bị chuyển nơi sinh hoạt Đảng.
+                        Đảng viên chủ động liên hệ Đoàn khoa để được hỗ trợ thực hiện nhận xét, kẹp cùng hồ sơ và nộp
+                        về Chi bộ.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box-info">
+                <h1>TRƯỜNG HỢP 4</h1>
+
+                <h2>1. Điều kiện tổng quan</h2>
+                <ul>
+                    <li>Chưa đi làm hoặc đang trong quá trình tìm việc</li>
+                    <li>Có nhu cầu chuyển sinh hoạt Đảng về nơi tạm trú hoặc thường trú</li>
+                </ul>
+
+                <h2>2. Hồ sơ cần nộp</h2>
+                <ul>
+                    <li>Đơn xin chuyển nơi sinh hoạt Đảng <a :href="data.don">(TẠI ĐÂY)</a></li>
+                    <li>Bản tự kiểm điểm <a :href="data.tuKiem">(TẠI ĐÂY)</a></li>
+                    <li>Thông tin tạm trú/thường trú trên ứng dụng VNeID (in kẹp cùng hồ sơ)</li>
+                    <li>Tổng hợp ý kiến nhận xét <a :href="data.tongHopNhanXet">(TẠI ĐÂY)</a></li>
+                </ul>
+
+                <h2>3. Lưu ý</h2>
+                <ul>
+                    <li>
+                        Tại mục lý do trong đơn, ghi rõ thời gian đã tốt nghiệp; hiện chưa có việc làm hoặc đang trong
+                        quá trình tìm việc. Vì vậy đề nghị chuyển sinh hoạt Đảng về tổ chức Đảng tại nơi tạm trú hoặc
+                        thường trú để tiếp tục tham gia sinh hoạt Đảng (ghi đầy đủ tên tổ chức Đảng tiếp nhận).
+                    </li>
+                    <li>
+                        Phiếu tổng hợp ý kiến nhận xét chỉ áp dụng đối với Đảng viên dự bị chuyển nơi sinh hoạt Đảng.
+                        Đảng viên chủ động liên hệ Đoàn khoa để được hỗ trợ thực hiện nhận xét, kẹp cùng hồ sơ và nộp
+                        về Chi bộ.
+                    </li>
                 </ul>
             </div>
         </div>
