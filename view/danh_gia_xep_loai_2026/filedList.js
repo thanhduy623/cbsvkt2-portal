@@ -172,21 +172,21 @@ const FIELD_GROUPS = [
         key: "tk_I_1_1",
         label: "I.1 - Ý 1",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
         key: "tk_I_1_2",
         label: "I.1 - Ý 2",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
         key: "tk_I_1_3",
         label: "I.1 - Ý 3",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -206,21 +206,21 @@ const FIELD_GROUPS = [
         key: "tk_I_2_1",
         label: "I.2 - Ý 1",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
         key: "tk_I_2_2",
         label: "I.2 - Ý 2",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
         key: "tk_I_2_3",
         label: "I.2 - Ý 3",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -241,7 +241,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _ I_3_1",
         label: "I.3 - Ý 1",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -249,7 +249,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _I_3_2",
         label: "I.3 - Ý 2",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -257,7 +257,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _I_3_3",
         label: "I.3 - Ý 3",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -280,7 +280,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _II_1_1",
         label: "II.1 - Ý 1",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -288,7 +288,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _II_1_2",
         label: "II.1 - Ý 2",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -296,7 +296,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _II_1_3",
         label: "II.1 - Ý 3",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -319,7 +319,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _II_2_1",
         label: "II.2 - Ý 1",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -327,7 +327,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _II_2_2",
         label: "II.2 - Ý 2",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -335,7 +335,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _II_2_3",
         label: "II.2 - Ý 3",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -466,7 +466,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _VI_1",
         label: "VI - Ý 1",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -474,7 +474,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _VI_2",
         label: "VI - Ý 2",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {
@@ -482,7 +482,7 @@ const FIELD_GROUPS = [
         rawKey: "tk _VI_3",
         label: "VI - Ý 3",
         required: true,
-        minLength: 51,
+        minLength: 150,
         files: ["MB_01"],
       },
       {

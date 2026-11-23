@@ -1,7 +1,7 @@
 /**
  * Module xử lý giao diện giả lập văn bản 2 cột (1:5)
  * - Trình tự: KD_MB_02 -> KD_MB_01 -> KD_MB_03
- * - Kiểm tra tối thiểu 3 ý (> 50 ký tự) cho I.1, I.2, I.3, II.1, II.2, VI
+ * - Kiểm tra tối thiểu 3 ý (> 150 ký tự) cho I.1, I.2, I.3, II.1, II.2, VI
  * - Radio 1 trong 5 cho mục B.II (KĐG -> "Kết nạp chưa đủ 6 tháng")
  * - 6 Popup xác nhận tuần tự trước khi tải file
  * - Tự động xóa các dòng (<w:p>) chứa biến bị bỏ trống trong file DOCX xuất ra
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   1. RENDER CÁC DÒNG NHẬP LIỆU VỚI BỘ ĐẾM TỐI THIỂU 50 KÝ TỰ
+   1. RENDER CÁC DÒNG NHẬP LIỆU VỚI BỘ ĐẾM TỐI THIỂU 120 KÝ TỰ
    ========================================================================== */
 function renderBulletGroups() {
   const groups = document.querySelectorAll(".bullet-group");
@@ -58,8 +58,8 @@ function renderBulletGroups() {
         textarea.dataset.required = "true";
         textarea.dataset.minLength = String(minLen);
         textarea.placeholder =
-          minLen > 50
-            ? `${placeholder} (Ý ${i} - Bắt buộc trên 50 ký tự)...`
+          minLen > 150
+            ? `${placeholder} (Ý ${i} - Bắt buộc trên 150 ký tự)...`
             : `${placeholder} (Ý ${i} - Bắt buộc)...`;
       } else {
         textarea.placeholder = `${placeholder} (Ý ${i} - Tùy chọn, bỏ trống sẽ tự xóa dòng)...`;
@@ -74,10 +74,10 @@ function renderBulletGroups() {
       meta.appendChild(badge);
 
       let counterEl = null;
-      if (isReq && minLen > 50) {
+      if (isReq && minLen > 150) {
         counterEl = document.createElement("span");
         counterEl.className = "char-counter";
-        counterEl.textContent = "0/51 ký tự";
+        counterEl.textContent = "0/150 ký tự";
         meta.appendChild(counterEl);
       }
 
@@ -85,7 +85,7 @@ function renderBulletGroups() {
         autoResizeTextarea(textarea);
         if (counterEl) {
           const len = textarea.value.trim().length;
-          counterEl.textContent = `${len}/51 ký tự`;
+          counterEl.textContent = `${len}/150 ký tự`;
           counterEl.classList.toggle("ok", len >= minLen);
         }
       });
