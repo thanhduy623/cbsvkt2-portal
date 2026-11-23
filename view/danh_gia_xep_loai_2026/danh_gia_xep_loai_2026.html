@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hồ sơ Đánh giá, xếp loại Đảng viên năm 2026</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.42.0/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- ==================== CỘT TRÁI (1 PHẦN): SIDEBAR ĐIỀU HƯỚNG ==================== -->
+      <aside class="sidebar-col">
+        <div class="sidebar-sticky">
+          <div class="sidebar-title">
+            <span class="sub-label">CHI BỘ SV KHỐI KỸ THUẬT 2</span>
+            <h2>TRÌNH TỰ HỒ SƠ 2026</h2>
+          </div>
+
+          <nav class="step-nav">
+            <button
+              type="button"
+              class="step-btn active"
+              data-target="doc-mb02"
+              id="nav-mb02"
+            >
+              <div class="step-header">
+                <span class="step-badge">Bước 1</span>
+                <span
+                  class="status-dot invalid"
+                  id="dot-mb02"
+                  title="Chưa đủ thông tin bắt buộc"
+                ></span>
+              </div>
+              <div class="step-name">Biểu điểm tự chấm</div>
+              <div class="step-file">KD_MB_02.docx</div>
+            </button>
+
+            <button
+              type="button"
+              class="step-btn"
+              data-target="doc-mb01"
+              id="nav-mb01"
+            >
+              <div class="step-header">
+                <span class="step-badge">Bước 2</span>
+                <span
+                  class="status-dot invalid"
+                  id="dot-mb01"
+                  title="Chưa đủ thông tin bắt buộc"
+                ></span>
+              </div>
+              <div class="step-name">Bản kiểm điểm cá nhân</div>
+              <div class="step-file">KD_MB_01.docx</div>
+            </button>
+
+            <button
+              type="button"
+              class="step-btn"
+              data-target="doc-mb03"
+              id="nav-mb03"
+            >
+              <div class="step-header">
+                <span class="step-badge">Bước 3</span>
+                <span
+                  class="status-dot invalid"
+                  id="dot-mb03"
+                  title="Chưa đủ thông tin bắt buộc"
+                ></span>
+              </div>
+              <div class="step-name">Phiếu bổ sung hồ sơ</div>
+              <div class="step-file">KD_MB_03.docx</div>
+            </button>
+          </nav>
+
+          <div class="legend-box">
+            <div class="legend-title">Quy ước nhập liệu:</div>
+            <div class="legend-item">
+              <span class="req-star">*</span> Ý bắt buộc (trên 50 ký tự)
+            </div>
+            <div class="legend-item">
+              <span class="opt-tag">Tùy chọn</span> Bỏ trống sẽ tự xóa dòng
+            </div>
+            <div class="legend-item">
+              <span class="sync-tag">⇄ Đồng bộ</span> Tự cập nhật cả 3 mẫu
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ==================== CỘT PHẢI (5 PHẦN): GIẢ LẬP VĂN BẢN ==================== -->
+      <main class="content-col">
+        <!-- ==================== BƯỚC 1: MẪU 02 (BIỂU ĐIỂM) ==================== -->
+        <section class="a4-paper active" id="doc-mb02">
+          <div class="step-banner">
+            BƯỚC 1/3: CHẤM ĐIỂM ĐÁNH GIÁ ĐỂ TỰ ĐỘNG TÍNH XẾP LOẠI CHO MẪU 01
+          </div>
+
+          <div class="doc-title-block">
+            <div class="bold">PHỤ LỤC 4</div>
+            <h2>
+              KHUNG TIÊU CHÍ, BIỂU ĐIỂM ĐÁNH GIÁ ĐỐI VỚI ĐẢNG VIÊN<br />KHÔNG
+              LÀM VIỆC TRONG HỆ THỐNG CHÍNH TRỊ
+            </h2>
+            <div class="bold">(cán bộ hưu trí, sinh viên)</div>
+            <div class="italic">
+              (Ban hành kèm theo Hướng dẫn số 01-HD/ĐU ngày 18 tháng 11 năm 2026
+              của Đảng ủy Trường Đại học Tôn Đức Thắng)
+            </div>
+            <div class="divider-short">-----</div>
+          </div>
+
+          <div class="personal-info-block mb-12">
+            <div class="info-row">
+              <span
+                >Họ và tên người tự chấm <span class="req-star">*</span>:
+                <input
+                  type="text"
+                  data-key="ho_ten"
+                  data-required="true"
+                  class="inline-input w-280 bold"
+                  placeholder="Nhập họ và tên đầy đủ..."
+                />
+              </span>
+            </div>
+          </div>
+
+          <table class="criteria-table">
+            <thead>
+              <tr>
+                <th style="width: 6%">TT</th>
+                <th style="width: 64%">TIÊU CHÍ</th>
+                <th style="width: 14%">ĐIỂM TỐI ĐA</th>
+                <th style="width: 16%">
+                  ĐIỂM TỰ CHẤM <span class="req-star">*</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-group-header">
+                <td class="text-center bold">I</td>
+                <td class="bold">NHÓM TIÊU CHÍ CHUNG</td>
+                <td class="text-center bold">30</td>
+                <td class="text-center bold computed-cell" data-mirror="ntcc">
+                  0
+                </td>
+              </tr>
+              <tr class="row-sub-header">
+                <td class="text-center bold">1.</td>
+                <td class="bold">
+                  Về chính trị, phẩm chất đạo đức và ý thức tổ chức kỷ luật
+                </td>
+                <td class="text-center bold">21</td>
+                <td class="text-center bold computed-cell" data-mirror="tcc_1">
+                  0
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  Có lập trường tư tưởng chính trị vững vàng; chấp hành đường
+                  lối, chủ trương của Đảng, chính sách, pháp luật của Nhà nước
+                  và các quy định nơi lao động, học tập, sinh sống.
+                  <span class="req-star">*</span>
+                </td>
+                <td class="text-center">7</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcc_1_1"
+                    data-required="true"
+                    min="0"
+                    max="7"
+                    step="0.5"
+                    placeholder="0-7"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  Có phẩm chất đạo đức tốt, lối sống trung thực; không vi phạm
+                  Quy định về những điều đảng viên không được làm, văn hoá ứng
+                  xử nơi cư trú. <span class="req-star">*</span>
+                </td>
+                <td class="text-center">7</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcc_1_2"
+                    data-required="true"
+                    min="0"
+                    max="7"
+                    step="0.5"
+                    placeholder="0-7"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  Chấp hành các nguyên tắc tổ chức, sinh hoạt đảng; nghiêm túc
+                  trong tự phê bình và phê bình; có ý thức trách nhiệm trong xây
+                  dựng tổ chức đảng, giữ gìn đoàn kết nội bộ trong chi bộ; có
+                  quan hệ tốt với quần chúng nhân dân nơi sinh hoạt và nơi cư
+                  trú. <span class="req-star">*</span>
+                </td>
+                <td class="text-center">7</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcc_1_3"
+                    data-required="true"
+                    min="0"
+                    max="7"
+                    step="0.5"
+                    placeholder="0-7"
+                  />
+                </td>
+              </tr>
+              <tr class="row-sub-header">
+                <td class="text-center bold">2.</td>
+                <td class="bold">
+                  Nhóm tiêu chí về tự phê bình và phê bình, khắc phục hạn chế,
+                  khuyết điểm
+                </td>
+                <td class="text-center bold">9</td>
+                <td class="text-center bold computed-cell" data-mirror="tcc_2">
+                  0
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  Tinh thần tự phê bình, tự soi, tự sửa của cá nhân; mức độ tự
+                  giác nhận diện hạn chế, khuyết điểm của bản thân và kết quả
+                  khắc phục những hạn chế, khuyết điểm đã được chỉ ra.
+                  <span class="req-star">*</span>
+                </td>
+                <td class="text-center">9</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcc_2"
+                    data-required="true"
+                    min="0"
+                    max="9"
+                    step="0.5"
+                    placeholder="0-9"
+                  />
+                </td>
+              </tr>
+
+              <tr class="row-group-header">
+                <td class="text-center bold">II</td>
+                <td class="bold">
+                  NHÓM TIÊU CHÍ VỀ KẾT QUẢ THỰC HIỆN NHIỆM VỤ
+                </td>
+                <td class="text-center bold">70</td>
+                <td class="text-center bold computed-cell" data-mirror="ntcr">
+                  0
+                </td>
+              </tr>
+              <tr class="row-disabled">
+                <td class="text-center">-</td>
+                <td class="italic">
+                  1. Đối với cán bộ Hưu trí thực hiện đầy đủ quyền và nghĩa vụ
+                  của đảng viên. Hoàn thành các nhiệm vụ chính trị được cấp uỷ,
+                  chi bộ phân công. (Sinh viên để mặc định 0)
+                </td>
+                <td class="text-center">40</td>
+                <td class="text-center">0</td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  <strong>2. Đối với đảng viên là sinh viên</strong> căn cứ vào
+                  kết quả học tập và rèn luyện năm học hoặc trung bình tích lũy
+                  (sinh viên đã tốt nghiệp), trong năm kiểm điểm
+                  <span class="req-star">*</span>. Quy đổi:
+                  <div class="sub-scale-table">
+                    <span>• HT ≥ 8.0 & RL ≥ 90: <strong>40đ</strong></span>
+                    <span
+                      >• HT 6.5–&lt;8.0 & RL 70–&lt;90:
+                      <strong>35đ</strong></span
+                    >
+                    <span
+                      >• HT 5.0–&lt;6.5 & RL 50–&lt;70:
+                      <strong>30đ</strong></span
+                    >
+                    <span
+                      >• HT 3.5–&lt;5.0 & RL 35–&lt;50:
+                      <strong>25đ</strong></span
+                    >
+                    <span
+                      >• HT &lt; 3.5 & RL &lt; 35: <strong>20đ</strong></span
+                    >
+                  </div>
+                </td>
+                <td class="text-center">40</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcr_2"
+                    data-required="true"
+                    min="0"
+                    max="40"
+                    step="1"
+                    placeholder="0-40"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  3. Tham gia học tập nghị quyết, các văn bản chỉ đạo của cấp
+                  trên đầy đủ; phát huy vai trò của đảng viên, tích cực phát
+                  biểu ý kiến xây dựng chi bộ. <span class="req-star">*</span>
+                </td>
+                <td class="text-center">20</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcr_3"
+                    data-required="true"
+                    min="0"
+                    max="20"
+                    step="0.5"
+                    placeholder="0-20"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">-</td>
+                <td>
+                  4. Hoàn thành các nhiệm vụ đột xuất, tích cực tham gia các
+                  hoạt động do chi bộ và các tổ chức có liên quan tại địa phương
+                  giao, phát động, phù hợp với điều kiện và sức khỏe, độ tuổi.
+                  <span class="req-star">*</span>
+                </td>
+                <td class="text-center">10</td>
+                <td class="text-center">
+                  <input
+                    type="number"
+                    class="score-input"
+                    data-key="tcr_4"
+                    data-required="true"
+                    min="0"
+                    max="10"
+                    step="0.5"
+                    placeholder="0-10"
+                  />
+                </td>
+              </tr>
+              <tr class="row-total-footer">
+                <td colspan="2" class="text-right bold">
+                  TỔNG CỘNG ĐIỂM TỰ ĐÁNH GIÁ (I + II)
+                </td>
+                <td class="text-center bold">100</td>
+                <td class="text-center bold total-highlight" data-mirror="td">
+                  0
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="signature-block">
+            <div class="sig-col"></div>
+            <div class="sig-col text-center">
+              <div class="bold">NGƯỜI LẬP BIỂU</div>
+              <div class="italic">(Ký, ghi rõ họ tên)</div>
+              <div class="sig-space"></div>
+              <div class="bold mirror-text" data-mirror="ho_ten">
+                [Họ và tên]
+              </div>
+            </div>
+          </div>
+
+          <div class="next-step-bar">
+            <button
+              type="button"
+              class="btn-next-step"
+              onclick="switchStep('doc-mb01')"
+            >
+              Tiếp tục sang Bước 2: Bản kiểm điểm (Mẫu 01) ➔
+            </button>
+          </div>
+        </section>
+
+        <!-- ==================== BƯỚC 2: MẪU 01 (BẢN KIỂM ĐIỂM) ==================== -->
+        <section class="a4-paper" id="doc-mb01">
+          <div class="step-banner">
+            BƯỚC 2/3: SOẠN THẢO BẢN KIỂM ĐIỂM, TỰ ĐÁNH GIÁ CÁ NHÂN
+          </div>
+          <div class="doc-code-top">Mẫu 02C-HD KĐ.ĐG 2026</div>
+
+          <table class="header-table">
+            <tr>
+              <td class="header-left">
+                <div>ĐẢNG BỘ TRƯỜNG ĐẠI HỌC</div>
+                <div class="bold">TÔN ĐỨC THẮNG</div>
+                <div class="bold">CHI BỘ SINH VIÊN KHỐI KỸ THUẬT 2</div>
+                <div class="header-line"></div>
+              </td>
+              <td class="header-right">
+                <div class="bold">ĐẢNG CỘNG SẢN VIỆT NAM</div>
+                <div class="italic mt-4">
+                  TP. Hồ Chí Minh, ngày
+                  <input
+                    type="text"
+                    data-key="nk"
+                    data-required="true"
+                    class="inline-input w-40 text-center"
+                    placeholder="dd*"
+                  />
+                  tháng
+                  <input
+                    type="text"
+                    data-key="tk"
+                    data-required="true"
+                    class="inline-input w-40 text-center"
+                    placeholder="mm*"
+                  />
+                  năm
+                  <input
+                    type="text"
+                    data-key="kn"
+                    data-required="true"
+                    class="inline-input w-55 text-center"
+                    value="2026"
+                  />
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <div class="doc-title-block">
+            <h2>BẢN KIỂM ĐIỂM, TỰ ĐÁNH GIÁ, XẾP LOẠI CÁ NHÂN</h2>
+            <div class="bold">
+              Năm <span class="mirror-text" data-mirror="kn">2026</span>
+            </div>
+            <div class="italic">
+              (Đảng viên không làm việc trong hệ thống chính trị)
+            </div>
+          </div>
+
+          <div class="personal-info-block">
+            <div class="info-row">
+              <span
+                >Họ và tên <span class="req-star">*</span>:
+                <input
+                  type="text"
+                  data-key="ho_ten"
+                  data-required="true"
+                  class="inline-input w-240 bold"
+                  placeholder="Nhập họ và tên..."
+                />
+              </span>
+              <span
+                >Ngày sinh <span class="req-star">*</span>:
+                <input
+                  type="text"
+                  data-key="sn"
+                  data-required="true"
+                  class="inline-input w-40 text-center"
+                  placeholder="dd*"
+                  maxlength="2"
+                />
+                /
+                <input
+                  type="text"
+                  data-key="ts"
+                  data-required="true"
+                  class="inline-input w-40 text-center"
+                  placeholder="mm*"
+                  maxlength="2"
+                />
+                /
+                <input
+                  type="text"
+                  data-key="ns"
+                  data-required="true"
+                  class="inline-input w-55 text-center"
+                  placeholder="yyyy*"
+                  maxlength="4"
+                />
+              </span>
+            </div>
+            <div class="info-row">
+              <span
+                >Đơn vị công tác <span class="req-star">*</span>:
+                <input
+                  type="text"
+                  data-key="khoa"
+                  data-required="true"
+                  class="inline-input w-320"
+                  placeholder="Khoa Công nghệ thông tin..."
+                />
+              </span>
+            </div>
+            <div class="info-row">
+              <span>Chi bộ: <strong>Sinh viên khối Kỹ thuật 2</strong></span>
+            </div>
+          </div>
+
+          <div class="doc-body">
+            <h3 class="section-major">A. NỘI DUNG KIỂM ĐIỂM</h3>
+
+            <h4 class="section-roman">I. Ưu điểm, kết quả đạt được</h4>
+
+            <div class="criteria-block">
+              <p class="criteria-prompt">
+                <strong>1.</strong> Về phẩm chất chính trị, đạo đức, lối sống;
+                tinh thần đoàn kết, thống nhất trong nội bộ; ý thức tổ chức kỷ
+                luật, trách nhiệm nêu gương, việc thực hiện những điều đảng viên
+                không được làm; tác phong, lề lối làm việc. Liên hệ các biểu
+                hiện về suy thoái, "tự diễn biến", "tự chuyển hoá"; kết quả học
+                tập, thực hành tư tưởng, đạo đức, phong cách Hồ Chí Minh; ý thức
+                tự giác đấu tranh với biểu hiện cơ hội, vụ lợi, né tránh trách
+                nhiệm.
+              </p>
+              <div
+                class="bullet-group"
+                data-prefix="tk_I_1_"
+                data-count="5"
+                data-req-count="3"
+                data-min-len="51"
+                data-placeholder="Nhập ưu điểm về phẩm chất chính trị, đạo đức"
+              ></div>
+            </div>
+
+            <div class="criteria-block">
+              <p class="criteria-prompt">
+                <strong>2.</strong> Việc thực hiện quyền và nghĩa vụ của đảng
+                viên theo các nhiệm vụ chính trị được cấp uỷ, chi bộ phân công;
+                kết quả tham gia sinh hoạt đảng, thực hiện nhiệm vụ do chi bộ
+                phân công, giữ mối liên hệ với tổ chức đảng và nhân dân nơi cư
+                trú theo quy định; tinh thần trách nhiệm, gương mẫu trong lao
+                động, học tập và đời sống, phù hợp điều kiện của cá nhân.
+              </p>
+              <div
+                class="bullet-group"
+                data-prefix="tk_I_2_"
+                data-count="5"
+                data-req-count="3"
+                data-min-len="51"
+                data-placeholder="Nhập kết quả thực hiện nhiệm vụ đảng viên, học tập"
+              ></div>
+            </div>
+
+            <div class="criteria-block">
+              <p class="criteria-prompt">
+                <strong>3.</strong> Việc thực hiện cam kết tu dưỡng, rèn luyện,
+                phấn đấu của cá nhân theo quy định; kết quả thực hiện nội dung
+                đăng ký phấn đấu, tự soi, tự sửa gắn với những việc làm cụ thể.
+              </p>
+              <div
+                class="bullet-group"
+                data-prefix="tk_I_3_"
+                data-count="5"
+                data-req-count="3"
+                data-min-len="51"
+                data-placeholder="Nhập kết quả thực hiện cam kết tu dưỡng, tự soi tự sửa"
+              ></div>
+            </div>
+
+            <h4 class="section-roman">
+              II. Hạn chế, khuyết điểm và nguyên nhân
+            </h4>
+            <div class="criteria-block">
+              <p class="criteria-prompt">
+                <strong>1. Hạn chế, khuyết điểm:</strong>
+              </p>
+              <div
+                class="bullet-group"
+                data-prefix="tk_II_1_"
+                data-count="5"
+                data-req-count="3"
+                data-min-len="51"
+                data-placeholder="Nêu hạn chế, khuyết điểm của bản thân"
+              ></div>
+            </div>
+            <div class="criteria-block">
+              <p class="criteria-prompt">
+                <strong>2. Nguyên nhân của hạn chế, khuyết điểm:</strong>
+              </p>
+              <div
+                class="bullet-group"
+                data-prefix="tk_II_2_"
+                data-count="5"
+                data-req-count="3"
+                data-min-len="51"
+                data-placeholder="Nêu nguyên nhân của hạn chế, khuyết điểm"
+              ></div>
+            </div>
+
+            <!-- MỤC III: SELECT NẰM NGAY PHÍA TRÊN Ý ĐẦU TIÊN -->
+            <h4 class="section-roman">
+              III. Kết quả khắc phục những hạn chế, khuyết điểm đã được cấp có
+              thẩm quyền kết luận hoặc được chỉ ra ở các kỳ kiểm điểm trước
+            </h4>
+            <p class="criteria-note italic">
+              Kiểm điểm rõ từng hạn chế, khuyết điểm (đã được khắc phục; đang
+              khắc phục, mức độ khắc phục; chưa được khắc phục); những khó khăn,
+              vướng mắc (nếu có); trách nhiệm của cá nhân; làm rõ biện pháp đã
+              thực hiện, kết quả cụ thể, thời hạn hoàn thành và nội dung tiếp
+              tục khắc phục.
+            </p>
+            <div class="special-select-bar">
+              <label>Trạng thái mục III:</label>
+              <select class="special-mode-select" data-target-prefix="tk_III_">
+                <option value="custom">✏️ Tự nhập nội dung chi tiết</option>
+                <option value="none">🚫 Điền nhanh: "Không có."</option>
+              </select>
+            </div>
+            <div
+              class="bullet-group"
+              data-prefix="tk_III_"
+              data-count="5"
+              data-req-count="1"
+              data-min-len="1"
+              data-placeholder="Nhập kết quả khắc phục hạn chế kỳ trước"
+            ></div>
+
+            <!-- MỤC IV: SELECT NẰM NGAY PHÍA TRÊN Ý ĐẦU TIÊN -->
+            <h4 class="section-roman">
+              IV. Giải trình những vấn đề được gợi ý kiểm điểm (nếu có)
+            </h4>
+            <p class="criteria-note italic">
+              Giải trình từng vấn đề được gợi ý kiểm điểm, nêu nguyên nhân, xác
+              định trách nhiệm của cá nhân đối với từng vấn đề được gợi ý kiểm
+              điểm.
+            </p>
+            <div class="special-select-bar">
+              <label>Trạng thái mục IV:</label>
+              <select class="special-mode-select" data-target-prefix="tk_IV_">
+                <option value="none" selected>
+                  🚫 Điền nhanh: "Không có."
+                </option>
+                <option value="custom">✏️ Có gợi ý kiểm điểm (Tự nhập)</option>
+              </select>
+            </div>
+            <div
+              class="bullet-group"
+              data-prefix="tk_IV_"
+              data-count="5"
+              data-req-count="1"
+              data-min-len="1"
+              data-placeholder="Nhập nội dung giải trình"
+            ></div>
+
+            <!-- MỤC V: SELECT NẰM NGAY PHÍA TRÊN Ý ĐẦU TIÊN -->
+            <h4 class="section-roman">
+              V. Làm rõ trách nhiệm của cá nhân đối với những hạn chế, khuyết
+              điểm của tập thể (nếu có)
+            </h4>
+            <div class="special-select-bar">
+              <label>Trạng thái mục V:</label>
+              <select class="special-mode-select" data-target-prefix="tk_V_">
+                <option value="none" selected>
+                  🚫 Điền nhanh: "Không có."
+                </option>
+                <option value="custom">✏️ Có hạn chế tập thể (Tự nhập)</option>
+              </select>
+            </div>
+            <div
+              class="bullet-group"
+              data-prefix="tk_V_"
+              data-count="5"
+              data-req-count="1"
+              data-min-len="1"
+              data-placeholder="Nhập trách nhiệm cá nhân đối với hạn chế tập thể"
+            ></div>
+
+            <!-- MỤC VI: TỐI THIỂU 3 Ý, MỖI Ý > 50 KÝ TỰ -->
+            <h4 class="section-roman">
+              VI. Phương hướng, biện pháp khắc phục hạn chế, khuyết điểm
+              <span class="normal italic"
+                >(xác định rõ nội dung, biện pháp, thời gian thực hiện và trách
+                nhiệm của cá nhân)</span
+              >
+            </h4>
+            <div
+              class="bullet-group"
+              data-prefix="tk_VI_"
+              data-count="5"
+              data-req-count="3"
+              data-min-len="51"
+              data-placeholder="Nhập phương hướng, giải pháp khắc phục"
+            ></div>
+
+            <h3 class="section-major">B. NỘI DUNG TỰ ĐÁNH GIÁ, XẾP LOẠI</h3>
+            <h4 class="section-roman">I. Đánh giá theo các nhóm tiêu chí</h4>
+            <div class="score-summary-box">
+              <div>
+                1. Nhóm tiêu chí chung:
+                <strong class="score-highlight" data-mirror="ntcc">0</strong>/30
+                điểm
+              </div>
+              <div>
+                2. Nhóm tiêu chí về kết quả thực hiện nhiệm vụ:
+                <strong class="score-highlight" data-mirror="ntcr">0</strong>/70
+                điểm
+              </div>
+              <div class="total-line">
+                Tổng điểm:
+                <strong class="score-total" data-mirror="td">0</strong>/100 điểm
+              </div>
+            </div>
+
+            <!-- MỤC B.II: RADIO CHỌN 1 TRONG 5 -->
+            <h4 class="section-roman">
+              II. Đề xuất xếp loại mức chất lượng
+              <span class="req-star">*</span>:
+            </h4>
+            <div class="classification-grid">
+              <label class="radio-item">
+                <input
+                  type="radio"
+                  name="rank_selection"
+                  value="is_htxs"
+                  data-rank-key="is_htxs"
+                />
+                <span>Hoàn thành xuất sắc nhiệm vụ</span>
+              </label>
+              <label class="radio-item">
+                <input
+                  type="radio"
+                  name="rank_selection"
+                  value="is_htt"
+                  data-rank-key="is_htt"
+                />
+                <span>Hoàn thành tốt nhiệm vụ</span>
+              </label>
+              <label class="radio-item">
+                <input
+                  type="radio"
+                  name="rank_selection"
+                  value="is_ht"
+                  data-rank-key="is_ht"
+                />
+                <span>Hoàn thành nhiệm vụ</span>
+              </label>
+              <label class="radio-item">
+                <input
+                  type="radio"
+                  name="rank_selection"
+                  value="is_kht"
+                  data-rank-key="is_kht"
+                />
+                <span>Không hoàn thành nhiệm vụ</span>
+              </label>
+              <label class="radio-item radio-full">
+                <input
+                  type="radio"
+                  name="rank_selection"
+                  value="is_kdg"
+                  data-rank-key="is_kdg"
+                />
+                <span
+                  >Không đánh giá
+                  <em>(Tự động ghi: "Kết nạp chưa đủ 6 tháng")</em></span
+                >
+              </label>
+            </div>
+
+            <div class="signature-block">
+              <div class="sig-col"></div>
+              <div class="sig-col text-center">
+                <div class="bold">NGƯỜI TỰ KIỂM ĐIỂM</div>
+                <div class="italic">(Ký, ghi rõ họ tên)</div>
+                <div class="sig-space"></div>
+                <div class="bold mirror-text" data-mirror="ho_ten">
+                  [Họ và tên]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="next-step-bar">
+            <button
+              type="button"
+              class="btn-prev-step"
+              onclick="switchStep('doc-mb02')"
+            >
+              ⬅ Quay lại Bước 1
+            </button>
+            <button
+              type="button"
+              class="btn-next-step"
+              onclick="switchStep('doc-mb03')"
+            >
+              Tiếp tục sang Bước 3: Phiếu bổ sung hồ sơ (Mẫu 03) ➔
+            </button>
+          </div>
+        </section>
+
+        <!-- ==================== BƯỚC 3: MẪU 03 (XÁC NHẬN THÔNG TIN BỔ SUNG HỒ SƠ) ==================== -->
+        <section class="a4-paper" id="doc-mb03">
+          <div class="step-banner">
+            BƯỚC 3/3: KIỂM TRA THÔNG TIN PHIẾU BỔ SUNG HỒ SƠ ĐẢNG VIÊN
+            (KD_MB_03)
+          </div>
+
+          <div class="doc-title-block">
+            <div class="bold">
+              ĐẢNG BỘ TRƯỜNG ĐH TÔN ĐỨC THẮNG — CHI BỘ SINH VIÊN KHỐI KỸ THUẬT 2
+            </div>
+            <h2>PHIẾU BỔ SUNG HỒ SƠ ĐẢNG VIÊN</h2>
+            <div class="bold">
+              Năm <span class="mirror-text" data-mirror="kn">2026</span>
+            </div>
+            <div class="italic">
+              (Dữ liệu tự động đồng bộ từ Bước 1 & Bước 2 — Các mục không thay
+              đổi mặc định giữ chữ "K" theo mẫu)
+            </div>
+          </div>
+
+          <div class="mb03-summary-card">
+            <div class="info-row">
+              <span
+                >Họ và tên đang dùng <span class="req-star">*</span>:
+                <input
+                  type="text"
+                  data-key="ho_ten"
+                  data-required="true"
+                  class="inline-input w-240 bold"
+                  placeholder="Nhập họ và tên..."
+                />
+              </span>
+              <span
+                >Sinh ngày <span class="req-star">*</span>:
+                <input
+                  type="text"
+                  data-key="sn"
+                  data-required="true"
+                  class="inline-input w-40 text-center"
+                  placeholder="dd*"
+                  maxlength="2"
+                />
+                tháng
+                <input
+                  type="text"
+                  data-key="ts"
+                  data-required="true"
+                  class="inline-input w-40 text-center"
+                  placeholder="mm*"
+                  maxlength="2"
+                />
+                năm
+                <input
+                  type="text"
+                  data-key="ns"
+                  data-required="true"
+                  class="inline-input w-55 text-center"
+                  placeholder="yyyy*"
+                  maxlength="4"
+                />
+              </span>
+            </div>
+            <div class="info-row mt-8">
+              <span
+                >Ngày lập phiếu <span class="req-star">*</span>: TP. Hồ Chí
+                Minh, ngày
+                <input
+                  type="text"
+                  data-key="nk"
+                  data-required="true"
+                  class="inline-input w-40 text-center"
+                  placeholder="dd*"
+                />
+                tháng
+                <input
+                  type="text"
+                  data-key="tk"
+                  data-required="true"
+                  class="inline-input w-40 text-center"
+                  placeholder="mm*"
+                />
+                năm
+                <input
+                  type="text"
+                  data-key="kn"
+                  data-required="true"
+                  class="inline-input w-55 text-center"
+                  value="2026"
+                />
+              </span>
+            </div>
+            <div class="mb03-note-box">
+              <strong>Ghi chú xử lý file tự động:</strong>
+              <ul>
+                <li>
+                  Toàn bộ các mục kê khai thay đổi trong năm đã được điền sẵn
+                  chữ <strong>"K"</strong> (Không thay đổi) đúng quy định.
+                </li>
+                <li>
+                  Các ý tùy chọn bị bỏ trống trong Mẫu 01 sẽ tự động được
+                  <strong>xóa bỏ dòng trống</strong> trong file Word xuất ra để
+                  bố cục văn bản liền mạch, không bị thưa khoảng cách.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="next-step-bar">
+            <button
+              type="button"
+              class="btn-prev-step"
+              onclick="switchStep('doc-mb01')"
+            >
+              ⬅ Quay lại Bước 2 (Mẫu 01)
+            </button>
+          </div>
+        </section>
+
+        <!-- ==================== NÚT TẢI DUY NHẤT Ở CUỐI CÙNG (KHÔNG NEO FOOTER) ==================== -->
+        <div class="final-download-section">
+          <div class="validation-summary" id="validationSummary">
+            Vui lòng hoàn thành đầy đủ các trường bắt buộc (<span
+              class="req-star"
+              >*</span
+            >) và đạt tối thiểu 50 ký tự cho các ý quy định trước khi tải.
+          </div>
+          <button type="button" class="btn-download-all" id="btnDownloadAll">
+            📥 KIỂM TRA & TẢI TRỌN BỘ 3 FILE DOCX (MB02 + MB01 + MB03)
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <!-- ==================== MODAL POPUP XÁC NHẬN TUẦN TỰ 6 BƯỚC ==================== -->
+    <div class="confirm-modal-overlay" id="confirmModalOverlay">
+      <div class="confirm-modal-box">
+        <div class="modal-step-indicator" id="modalStepIndicator">
+          LƯU Ý QUAN TRỌNG (1/6)
+        </div>
+        <div class="modal-icon">⚠️</div>
+        <h3 class="modal-title">YÊU CẦU XÁC NHẬN TRƯỚC KHI TẢI HỒ SƠ</h3>
+        <p class="modal-message" id="modalMessageText"></p>
+        <div class="modal-actions">
+          <button type="button" class="btn-modal-cancel" id="btnModalCancel">
+            Hủy bỏ
+          </button>
+          <button type="button" class="btn-modal-confirm" id="btnModalConfirm">
+            Xác nhận
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="filedList.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
