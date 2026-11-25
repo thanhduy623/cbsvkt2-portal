@@ -530,7 +530,7 @@ function initDownloadAllButton() {
         switchStep("doc-mb02");
       } else if (!status.mb01Ok) {
         summaryEl.textContent =
-          "❌ Bước 2 (Mẫu 01 - Bản kiểm điểm) còn thiếu thông tin bắt buộc, ý chưa đủ trên 50 ký tự hoặc chưa chọn xếp loại B.II.";
+          "❌ Bước 2 (Mẫu 01 - Bản kiểm điểm) còn thiếu thông tin bắt buộc, ý chưa đủ trên 150 ký tự hoặc chưa chọn xếp loại B.II.";
         switchStep("doc-mb01");
       } else {
         summaryEl.textContent =

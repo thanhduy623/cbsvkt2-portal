@@ -167,7 +167,7 @@ const FIELD_GROUPS = [
     groupId: "mb01_noi_dung",
     groupTitle: "Bước 2: Bản kiểm điểm cá nhân (Mẫu 01)",
     fields: [
-      // I.1 (Tối thiểu 3 ý, mỗi ý > 50 ký tự)
+      // I.1 (Tối thiểu 3 ý, mỗi ý > 150 ký tự)
       {
         key: "tk_I_1_1",
         label: "I.1 - Ý 1",
@@ -201,7 +201,7 @@ const FIELD_GROUPS = [
         required: false,
         files: ["MB_01"],
       },
-      // I.2 (Tối thiểu 3 ý, mỗi ý > 50 ký tự)
+      // I.2 (Tối thiểu 3 ý, mỗi ý > 150 ký tự)
       {
         key: "tk_I_2_1",
         label: "I.2 - Ý 1",
@@ -235,7 +235,7 @@ const FIELD_GROUPS = [
         required: false,
         files: ["MB_01"],
       },
-      // I.3 (Tối thiểu 3 ý, mỗi ý > 50 ký tự)
+      // I.3 (Tối thiểu 3 ý, mỗi ý > 150 ký tự)
       {
         key: "tk_I_3_1",
         rawKey: "tk _ I_3_1",
@@ -274,7 +274,7 @@ const FIELD_GROUPS = [
         required: false,
         files: ["MB_01"],
       },
-      // II.1 Hạn chế (Tối thiểu 3 ý, mỗi ý > 50 ký tự)
+      // II.1 Hạn chế (Tối thiểu 3 ý, mỗi ý > 150 ký tự)
       {
         key: "tk_II_1_1",
         rawKey: "tk _II_1_1",
@@ -313,7 +313,7 @@ const FIELD_GROUPS = [
         required: false,
         files: ["MB_01"],
       },
-      // II.2 Nguyên nhân (Tối thiểu 3 ý, mỗi ý > 50 ký tự)
+      // II.2 Nguyên nhân (Tối thiểu 3 ý, mỗi ý > 150 ký tự)
       {
         key: "tk_II_2_1",
         rawKey: "tk _II_2_1",
@@ -460,7 +460,7 @@ const FIELD_GROUPS = [
         required: false,
         files: ["MB_01"],
       },
-      // VI. Phương hướng khắc phục (Tối thiểu 3 ý, mỗi ý > 50 ký tự)
+      // VI. Phương hướng khắc phục (Tối thiểu 3 ý, mỗi ý > 150 ký tự)
       {
         key: "tk_VI_1",
         rawKey: "tk _VI_1",
